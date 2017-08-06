@@ -2,10 +2,13 @@ package com.kolektesan.julio.kolektesan.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
@@ -14,11 +17,19 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.kolektesan.julio.kolektesan.More;
 import com.kolektesan.julio.kolektesan.R;
 import com.kolektesan.julio.kolektesan.fragment.FragmentListInfo;
 import com.kolektesan.julio.kolektesan.fragment.FragmentListPosition;
 
 public class Home extends AppCompatActivity {
+    private DrawerLayout mDrawer;
+    private Toolbar toolbar;
+    private NavigationView nvDrawer;
+
+    // Make sure to be using android.support.v7.app.ActionBarDrawerToggle version.
+    // The android.support.v4.app.ActionBarDrawerToggle has been deprecated.
+    private ActionBarDrawerToggle drawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,13 +40,12 @@ public class Home extends AppCompatActivity {
         vpPager.setAdapter(new Home.ArticlesPagerAdapter(getSupportFragmentManager()));
         PagerSlidingTabStrip tabStrip=(PagerSlidingTabStrip)findViewById(R.id.tabs);
         tabStrip.setViewPager(vpPager);
-        // Set a Toolbar to replace the ActionBar.
+        // Set aba Toolbar to replace the ActionBar.
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("La Croix Rouge Haïtienne ");
-
     }
-
+    
     public class ArticlesPagerAdapter extends FragmentPagerAdapter implements PagerSlidingTabStrip.IconTabProvider {
         final int PAGE_COUNT = 5;
         //private String tabTitles[] = new String[]{"Mes Institutions","Mes Formations" ,"Mes Participants"};
@@ -94,7 +104,7 @@ public class Home extends AppCompatActivity {
             public boolean onQueryTextSubmit(String query) {
                 // perform query here
 
-                // workaround to avoid issues with some emulators and keyboard devices firing twice if a keyboard enter is used
+                // workaround to avoid issues with some emulators and keyboard devices firing twice if aba keyboard enter is used
                 // see https://code.google.com/p/android/issues/detail?id=24599
                 searchView.clearFocus();
 
@@ -110,10 +120,11 @@ public class Home extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        // The action bar home/up action should open or close the drawer.
         switch (item.getItemId()) {
             case R.id.options:
                 // show the pop up
-                Intent intent = new Intent(Home.this, MenuActivite.class);
+                    Intent intent = new Intent(Home.this, More.class);
                 startActivity(intent);
             default:
                 return super.onOptionsItemSelected(item);

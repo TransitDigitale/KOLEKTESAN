@@ -22,7 +22,10 @@
         <activity android:name=".activity.Details" />
         <activity android:name=".activity.Infos" />
         <activity android:name=".activity.Profil" />
-        <activity android:name=".activity.MenuActivite"></activity>
+        <activity
+            android:name=".More"
+            android:label="@string/title_activity_more"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

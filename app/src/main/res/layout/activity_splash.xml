@@ -13,10 +13,8 @@
             android:layout_height="200dp"
             android:contentDescription=""
             android:scaleType="centerInside"
-            android:src="@drawable/cr"
+            android:src="@drawable/blood"
             tools:ignore="ContentDescription"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
-
-
     </RelativeLayout>
