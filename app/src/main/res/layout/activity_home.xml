@@ -44,6 +44,4 @@
         app:pstsTextAllCaps="true"
         app:pstsUnderlineColor="#fff" />
 
-
-
 </RelativeLayout>
