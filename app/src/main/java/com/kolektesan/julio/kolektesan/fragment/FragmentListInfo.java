@@ -1,4 +1,4 @@
-package com.kolektesan.julio.kolektesan;
+package com.kolektesan.julio.kolektesan.fragment;
 
 
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.kolektesan.julio.kolektesan.R;
 
 
 /**

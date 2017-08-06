@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
     android:background="#fff"
-        tools:context="com.kolektesan.julio.kolektesan.Splash">
+        tools:context="com.kolektesan.julio.kolektesan.activity.Splash">
 
         <ImageView
             android:id="@+id/splash"

@@ -1,4 +1,4 @@
-package com.kolektesan.julio.kolektesan;
+package com.kolektesan.julio.kolektesan.fragment;
 
 
 import android.content.Intent;
@@ -8,6 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+
+import com.kolektesan.julio.kolektesan.activity.Details;
+import com.kolektesan.julio.kolektesan.R;
 
 
 /**

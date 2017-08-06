@@ -1,9 +1,11 @@
-package com.kolektesan.julio.kolektesan;
+package com.kolektesan.julio.kolektesan.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+
+import com.kolektesan.julio.kolektesan.R;
 
 public class Profil extends AppCompatActivity {
 

@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Splash">
+        <activity android:name=".activity.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,11 +17,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Home"
+            android:name=".activity.Home"
             android:theme="@style/AppTheme" />
-        <activity android:name=".Details" />
-        <activity android:name=".Infos" />
-        <activity android:name=".Profil"></activity>
+        <activity android:name=".activity.Details" />
+        <activity android:name=".activity.Infos" />
+        <activity android:name=".activity.Profil" />
+        <activity android:name=".activity.MenuActivite"></activity>
     </application>
 
 </manifest>
