@@ -36,6 +36,7 @@ public class PlayerMusic extends AppCompatActivity {
             // or just mediaPlayer.setDataSource(mFileName);
             mediaPlayer.prepare(); // must call prepare first
             mediaPlayer.start(); // then start
+            o
         } catch (IOException e) {
             e.printStackTrace();
         }
