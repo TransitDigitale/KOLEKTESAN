@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.kolektesan.julio.kolektesan.Details">
+    tools:context="com.kolektesan.julio.kolektesan.activity.Details">
     <android.support.v7.widget.Toolbar
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -28,7 +28,7 @@
         android:layout_alignParentStart="true">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/ivlocal"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_alignParentTop="true"
@@ -37,39 +37,42 @@
             app:srcCompat="@drawable/cr" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tvVille"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView"
-            android:layout_marginEnd="74dp"
-            android:layout_marginRight="74dp"
             android:layout_marginTop="17dp"
-            android:layout_toLeftOf="@+id/imageView2"
-            android:layout_toStartOf="@+id/imageView2"
             android:text="Cap haitien"
             android:textColor="#000"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:layout_below="@+id/ivlocal"
+            android:layout_alignRight="@+id/ivlocal"
+            android:layout_alignEnd="@+id/ivlocal" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/tvAdresse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView"
+            android:foregroundGravity="center_horizontal|center"
+            android:gravity="center_vertical|center_horizontal"
             android:padding="16dp"
-            android:text="1, 10, Impasse Céreste, Bréda, Haut-du-Cap"
-            android:textSize="22sp" />
+            android:text="PTS"
+            android:textSize="22sp"
+            android:layout_below="@+id/tvVille"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/imageView"
+            android:layout_alignBottom="@+id/ivlocal"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_marginEnd="34dp"
             android:layout_marginRight="34dp"
+            android:onClick="onCall"
             app:srcCompat="@drawable/ic_action_tlf" />
     </RelativeLayout>
 

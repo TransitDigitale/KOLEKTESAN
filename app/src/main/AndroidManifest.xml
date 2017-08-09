@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kolektesan.julio.kolektesan">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Splash">
+        <activity android:name=".activity.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,12 +19,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Home"
+            android:name=".activity.Home"
             android:theme="@style/AppTheme" />
-        <activity android:name=".Details" />
-        <activity android:name=".Infos" />
-        <activity android:name=".Profil" />
-        <activity android:name=".Drawer"></activity>
+        <activity android:name=".activity.Details" />
+        <activity android:name=".activity.Infos" />
+        <activity android:name=".activity.Profil" />
+        <activity android:name=".explication.WelcomeActivity" />
+        <activity
+            android:name=".activity.ScrollingActivityDetailArticle"
+            android:label="@string/title_activity_scrolling_detail_article"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".MusicActivity" />
+        <activity
+            android:name=".activity.PlayerMusic"
+            android:label="@string/title_activity_player_music"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

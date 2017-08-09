@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+
+    <TextView
+        android:id="@+id/tvVille"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:text="Port au prince"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:layout_alignTop="@+id/corver"
+        android:layout_toRightOf="@+id/corver"
+        android:layout_toEndOf="@+id/corver" />
+
+    <TextView
+        android:id="@+id/tvAdresse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvVille"
+        android:layout_alignStart="@+id/tvVille"
+        android:layout_below="@+id/tvVille"
+        android:maxLines="5"
+        android:text="1, rue Eden, Bicentenaire"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="26dp"
+        android:alpha="0"
+        android:text="TextView" />
+
+    <ImageView
+        android:id="@+id/corver"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        app:srcCompat="@drawable/a" />
+
+    <ImageView
+        android:id="@+id/btnPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_media_play"
+        android:layout_alignBottom="@+id/tvType"
+        android:layout_toLeftOf="@+id/btnPause"
+        android:layout_toStartOf="@+id/btnPause" />
+
+    <ImageView
+        android:id="@+id/btnPause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_media_pause"
+        android:layout_alignTop="@+id/btnPlay"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
