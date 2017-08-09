@@ -8,6 +8,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.kolektesan.julio.kolektesan.R;
+import com.kolektesan.julio.kolektesan.explication.WelcomeActivity;
 
 public class Splash extends AppCompatActivity {
     private final int SPLASH_DISPLAY_LENGTH = 1500;
@@ -23,7 +24,7 @@ public class Splash extends AppCompatActivity {
             @Override
             public void run() {
                 //Create an Intent that will start the Menu-Activity.
-                Intent intent = new Intent(Splash.this, Home.class);
+                Intent intent = new Intent(Splash.this, WelcomeActivity.class);
                 startActivity(intent);
                 finish();
             }

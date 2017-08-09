@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.kolektesan.julio.kolektesan.activity.Profil">
+        tools:context="com.kolektesan.julio.kolektesan.activity.Profil"
+        tools:ignore="ScrollViewSize">
         <android.support.v7.widget.Toolbar
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -14,7 +19,7 @@
             android:fitsSystemWindows="true"
             android:minHeight="?attr/actionBarSize"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            android:background="@color/colorPrimary"
+            android:background="#fff"
             app:titleTextColor="@android:color/background_light">
         </android.support.v7.widget.Toolbar>
 
@@ -23,24 +28,27 @@
         android:id="@+id/two"
         android:layout_width="match_parent"
         android:layout_height="500dp"
+        android:layout_below="@+id/toolbar"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/toolbar">
+        android:layout_alignParentStart="true">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivlocal"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:civ_border_color="#ccc"
+            app:civ_border_overlay="true"
+            app:civ_border_width="3dp"
+            app:civ_fill_color="@color/background_tab_pressed"
+            app:srcCompat="@drawable/usera"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="37dp"
-            app:srcCompat="@drawable/julio" />
+            android:layout_centerHorizontal="true" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tvVille"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView"
+            android:layout_below="@+id/ivlocal"
             android:layout_marginEnd="74dp"
             android:layout_marginRight="74dp"
             android:layout_marginTop="17dp"
@@ -48,29 +56,36 @@
             android:layout_toStartOf="@+id/imageView2"
             android:text="Jean Fils Julio"
             android:textColor="#000"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="72dp"
             android:text="Le 2 juin 2017"
             android:textSize="14sp"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/textView"
-            android:layout_toStartOf="@+id/textView" />
+            tools:ignore="HardcodedText"
+            android:layout_below="@+id/tvVille"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="13dp"
+            android:layout_marginStart="13dp" />
 
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/imageView"
+            android:layout_alignBottom="@+id/ivlocal"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_marginEnd="34dp"
             android:layout_marginRight="34dp"
             android:alpha="0"
-            app:srcCompat="@drawable/ic_action_tlf" />
+            app:srcCompat="@drawable/ic_action_tlf"
+            tools:ignore="ContentDescription" />
+
     </RelativeLayout>
 
     <Button
@@ -84,18 +99,21 @@
         android:layout_alignParentStart="true"
         android:background="#fff"
         android:text="Planifier un don"
-        android:textColor="@color/colorPrimary" />
+        android:textColor="@color/colorPrimary"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dernier don effectuer"
-        android:layout_centerVertical="true"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="148dp"
+        android:text="Dernier don effectué!"
+        tools:ignore="HardcodedText"
+        android:layout_below="@+id/toolbar"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/textView5"
@@ -105,17 +123,51 @@
         android:layout_alignStart="@+id/textView4"
         android:layout_below="@+id/textView4"
         android:layout_marginTop="43dp"
-        android:text="GS:" />
+        android:text="GS:"
+        tools:ignore="HardcodedText" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tvGS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView5"
-        android:layout_toEndOf="@+id/textView5"
-        android:text="B+"
         android:layout_marginLeft="8sp"
-        android:layout_toRightOf="@+id/textView5" />
+        android:layout_toEndOf="@+id/textView5"
+        android:layout_toRightOf="@+id/textView5"
+        android:text="B+"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/tvAdresse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView5"
+        android:layout_alignStart="@+id/textView5"
+        android:layout_below="@+id/textView5"
+        android:layout_marginTop="15dp"
+        android:text="@string/adresse" />
+
+    <TextView
+        android:id="@+id/tvTe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvAdresse"
+        android:layout_alignStart="@+id/tvAdresse"
+        android:layout_below="@+id/tvAdresse"
+        android:layout_marginTop="12dp"
+        android:text="Tel"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tvQsang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvTe"
+        android:layout_alignStart="@+id/tvTe"
+        android:layout_below="@+id/tvTe"
+        android:layout_marginTop="13dp"
+        android:text="Qte sang"
+        tools:ignore="HardcodedText" />
 
 </RelativeLayout>
-
+</ScrollView>

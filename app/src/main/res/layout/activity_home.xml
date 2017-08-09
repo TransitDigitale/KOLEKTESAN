@@ -1,46 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.kolektesan.julio.kolektesan.activity.Home">
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
-    <android.support.v7.widget.Toolbar
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/toolbar"
-        android:layout_height="wrap_content"
+    <include
+        layout="@layout/app_bar_more"
         android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <!--
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:id="@+id/flContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </FrameLayout>
+
+    </RelativeLayout>
+-->
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        android:minHeight="?attr/actionBarSize"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:background="@color/colorPrimary"
-        app:titleTextColor="@android:color/background_light">
-    </android.support.v7.widget.Toolbar>
+        app:headerLayout="@layout/nav_header_more"
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:background="#fff"
-        android:layout_above="@+id/tabs"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/toolbar" />
+        app:menu="@menu/activity_more_drawer" />
 
-    <com.astuetz.PagerSlidingTabStrip
-        android:id="@+id/tabs"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:background="@android:color/background_light"
-        android:elevation="9dp"
-        android:textColor="#fff"
-        app:pstsDividerColor="#fff"
-        app:pstsIndicatorColor="#fff"
-        app:pstsShouldExpand="true"
-        app:pstsTabPaddingLeftRight="4dp"
-        app:pstsTextAllCaps="true"
-        app:pstsUnderlineColor="#fff" />
-</RelativeLayout>
+        android:layout_height="match_parent"
+        tools:context="com.kolektesan.julio.kolektesan.activity.Home">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/tabs"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="60dp"
+            android:background="#fff" />
+
+        <com.astuetz.PagerSlidingTabStrip
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/background_light"
+            android:elevation="9dp"
+            android:textColor="#fff"
+            app:pstsDividerColor="#fff"
+            app:pstsIndicatorColor="#fff"
+            app:pstsShouldExpand="true"
+            app:pstsTabPaddingLeftRight="4dp"
+            app:pstsTextAllCaps="true"
+            app:pstsUnderlineColor="#fff" />
+    </RelativeLayout>
+
+</android.support.v4.widget.DrawerLayout>

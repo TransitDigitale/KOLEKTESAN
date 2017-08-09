@@ -3,20 +3,20 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/statistique"
-            android:icon="@drawable/ic_action_menu"
-            android:title="Infos divers" />
+            android:id="@+id/profil"
+            android:icon="@drawable/ic_action_person"
+            android:title="Profil" />
         <item
             android:id="@+id/informations"
-            android:icon="@drawable/ic_action_home"
+            android:icon="@drawable/ic_action_stat"
             android:title="Statistiques" />
         <item
             android:id="@+id/vidoes"
-            android:icon="@drawable/ic_action_home"
+            android:icon="@drawable/ic_action_video"
             android:title="Videos" />
         <item
             android:id="@+id/pub"
-            android:icon="@drawable/ic_action_home"
+            android:icon="@drawable/ic_action_music"
             android:title="Musiques" />
     </group>
 
