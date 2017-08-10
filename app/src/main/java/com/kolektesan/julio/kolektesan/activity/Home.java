@@ -17,16 +17,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
-import com.kolektesan.julio.kolektesan.MusicActivity;
 import com.kolektesan.julio.kolektesan.R;
 import com.kolektesan.julio.kolektesan.fragment.FragmentInfos;
 import com.kolektesan.julio.kolektesan.fragment.FragmentListInfo;
 import com.kolektesan.julio.kolektesan.fragment.FragmentListPosition;
 import com.kolektesan.julio.kolektesan.fragment.FragmentProfil;
-import com.kolektesan.julio.kolektesan.fragment.MenuSuplementaire;
+import com.kolektesan.julio.kolektesan.fragment.PubFragment;
 
 public class Home extends AppCompatActivity {
     private DrawerLayout mDrawer;
@@ -102,9 +100,8 @@ public class Home extends AppCompatActivity {
         Class fragmentClass;
         switch(menuItem.getItemId()) {
             case R.id.profil:
-                Intent profil =  new Intent(this, MusicActivity.class);
+                Intent profil =  new Intent(this, ProfilDrawerActivity.class);
                 startActivity(profil);
-                Toast.makeText(this, "Videos" , Toast.LENGTH_SHORT).show();
                 break;
               /*
                 case R.id.nav_second_fragment:
@@ -174,7 +171,7 @@ public class Home extends AppCompatActivity {
             } else if (position == 1) {
                 return new FragmentListInfo();
             }  else if (position == 2) {
-                return new MenuSuplementaire();
+                return new PubFragment();
             }else if (position == 3) {
                 return new FragmentInfos();
             } else if (position == 4) {

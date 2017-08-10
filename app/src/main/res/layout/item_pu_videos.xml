@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tvVille"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="1"
+        android:text="Port au prince"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/tvType"
+        android:layout_alignBottom="@+id/tvType"
+        android:layout_alignLeft="@+id/tvAdresse"
+        android:layout_alignStart="@+id/tvAdresse" />
+
+    <TextView
+        android:id="@+id/tvAdresse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:alpha="1"
+        android:maxLength="16"
+        android:maxLines="5"
+        android:text="1, rue Eden, Bicentenaire"
+        android:textSize="18sp"
+        android:layout_below="@+id/tvVille"
+        android:layout_toRightOf="@+id/corver"
+        android:layout_toEndOf="@+id/corver"
+        android:layout_marginTop="15dp" />
+
+    <TextView
+        android:id="@+id/tvType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:alpha="0"
+        android:text="TextView"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/tvVille"
+        android:layout_alignEnd="@+id/tvVille" />
+
+    <ImageView
+        android:id="@+id/corver"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/tvVille"
+        android:alpha="0"
+        app:srcCompat="@drawable/a"
+        android:layout_alignBottom="@+id/videoPlay" />
+
+    <ImageView
+        android:id="@+id/btnPause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:alpha="0"
+        app:srcCompat="@android:drawable/ic_media_pause" />
+
+    <VideoView
+        android:id="@+id/videoPlay"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/tvType"
+        android:background="@drawable/a" />
+
+    <ImageView
+        android:id="@+id/btnPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_action_play"
+        android:layout_marginRight="72dp"
+        android:layout_marginEnd="72dp"
+        android:layout_above="@+id/tvAdresse"
+        android:layout_toLeftOf="@+id/tvAdresse"
+        android:layout_toStartOf="@+id/tvAdresse" />
+
+</RelativeLayout>
