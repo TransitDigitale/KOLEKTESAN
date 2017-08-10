@@ -19,6 +19,7 @@ public class PlayerMusic extends AppCompatActivity {
         setContentView(R.layout.activity_player_music);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().hide();
         pub = (Pub) getIntent().getSerializableExtra("playpub");
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
@@ -41,7 +42,6 @@ public class PlayerMusic extends AppCompatActivity {
             e.printStackTrace();
         }
         */
-
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

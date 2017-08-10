@@ -13,23 +13,19 @@
         <item
             android:id="@+id/vidoes"
             android:icon="@drawable/ic_action_video"
-            android:title="Videos" />
-        <item
-            android:id="@+id/pub"
-            android:icon="@drawable/ic_action_music"
-            android:title="Musiques" />
+            android:title="Questionnaire" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="Inviter mes amis" />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="Aide" />
         </menu>
     </item>
 

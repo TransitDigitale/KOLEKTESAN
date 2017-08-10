@@ -114,5 +114,6 @@
     <string name="slide_4_title">Ale bay san jodia men m</string>
     <string name="slide_4_desc">Toujou envite lot zanmi w fe men m bagay la ave w</string>
     <string name="title_activity_player_music">PlayerMusic</string>
+    <string name="title_activity_profil_drawer">ProfilDrawerActivity</string>
 
 </resources>

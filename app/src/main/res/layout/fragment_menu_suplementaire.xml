@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.kolektesan.julio.kolektesan.fragment.MenuSuplementaire">
+    tools:context="com.kolektesan.julio.kolektesan.fragment.PubFragment">
 
     <GridView
         android:layout_width="match_parent"

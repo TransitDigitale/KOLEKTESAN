@@ -27,6 +27,7 @@
         android:layout_alignLeft="@+id/tvVille"
         android:layout_alignStart="@+id/tvVille"
         android:layout_below="@+id/tvVille"
+        android:maxLength="16"
         android:maxLines="5"
         android:text="1, rue Eden, Bicentenaire"
         android:textSize="18sp" />
