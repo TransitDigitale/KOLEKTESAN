@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="16dp"
+    tools:layout_editor_absoluteX="8dp"
+    tools:layout_editor_absoluteY="8dp">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        tools:context="com.kolektesan.julio.kolektesan.activity.ProfilDrawerActivity"
+        tools:ignore="ScrollViewSize"
+        tools:showIn="@layout/activity_profil_drawer">
+
+        <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="66dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/ivlocal"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginTop="22dp"
+                android:foregroundGravity="center"
+                android:src="@drawable/usera"
+                app:civ_border_color="#fff"
+                app:civ_border_width="2dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/tvVille"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jean Fils Julio"
+                android:textColor="#000"
+                android:textSize="22sp"
+                tools:ignore="HardcodedText"
+                android:layout_below="@+id/ivlocal"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tvVille"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="29dp"
+                android:text="Le 2 juin 2017"
+                android:textSize="14sp"
+                tools:ignore="HardcodedText" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/ivlocal"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="34dp"
+                android:layout_marginRight="34dp"
+                android:alpha="0"
+                app:srcCompat="@drawable/ic_action_tlf"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btnFait"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:background="#fff"
+            android:text="planifier mon prochain don"
+            android:textColor="@color/colorPrimary"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:text="Dernier don effectué!"
+            tools:ignore="HardcodedText"
+            android:layout_alignBottom="@+id/two"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView4"
+            android:layout_alignStart="@+id/textView4"
+            android:layout_below="@+id/textView4"
+            android:layout_marginTop="43dp"
+            android:text="GS:"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/tvGS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textView5"
+            android:layout_marginLeft="8sp"
+            android:layout_toEndOf="@+id/textView5"
+            android:layout_toRightOf="@+id/textView5"
+            android:text="B+"
+            tools:ignore="HardcodedText,RtlHardcoded" />
+
+        <TextView
+            android:id="@+id/tvAdresse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView5"
+            android:layout_alignStart="@+id/textView5"
+            android:layout_below="@+id/textView5"
+            android:layout_marginTop="15dp"
+            android:text="@string/adresse" />
+
+        <TextView
+            android:id="@+id/tvTe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tvAdresse"
+            android:layout_alignStart="@+id/tvAdresse"
+            android:layout_below="@+id/tvAdresse"
+            android:layout_marginTop="12dp"
+            android:text="Tel"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/tvQsang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tvTe"
+            android:layout_alignStart="@+id/tvTe"
+            android:layout_below="@+id/tvTe"
+            android:layout_marginTop="13dp"
+            android:text="Qte sang"
+            tools:ignore="HardcodedText" />
+
+    </RelativeLayout>
+</ScrollView>

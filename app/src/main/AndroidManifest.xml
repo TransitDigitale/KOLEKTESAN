@@ -33,6 +33,11 @@
         <activity
             android:name=".activity.PlayerMusic"
             android:label="@string/title_activity_player_music"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".activity.PlayerVideos" />
+        <activity
+            android:name=".activity.ProfilDrawerActivity"
+            android:label="@string/title_activity_profil_drawer"
             android:theme="@style/AppTheme"></activity>
     </application>
 
