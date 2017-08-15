@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">KOLEKTE SAN</string>
-
+    <string name="app_name">Kolekte san</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank </string>
     <string name="drawer_open"></string>

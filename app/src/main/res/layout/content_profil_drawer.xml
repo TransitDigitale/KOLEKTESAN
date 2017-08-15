@@ -11,7 +11,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="400dp"
         tools:context="com.kolektesan.julio.kolektesan.activity.ProfilDrawerActivity"
         tools:ignore="ScrollViewSize"
         tools:showIn="@layout/activity_profil_drawer">
@@ -21,33 +21,33 @@
             android:id="@+id/two"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="66dp"
-            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="66dp">
 
             <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/ivlocal"
                 android:layout_width="96dp"
                 android:layout_height="96dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="22dp"
                 android:foregroundGravity="center"
                 android:src="@drawable/usera"
                 app:civ_border_color="#fff"
-                app:civ_border_width="2dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+                app:civ_border_width="2dp" />
 
             <TextView
                 android:id="@+id/tvVille"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/ivlocal"
+                android:layout_centerHorizontal="true"
                 android:text="Jean Fils Julio"
                 android:textColor="#000"
                 android:textSize="22sp"
-                tools:ignore="HardcodedText"
-                android:layout_below="@+id/ivlocal"
-                android:layout_centerHorizontal="true" />
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -96,14 +96,14 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/two"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="15dp"
             android:layout_marginStart="15dp"
             android:text="Dernier don effectué!"
-            tools:ignore="HardcodedText"
-            android:layout_alignBottom="@+id/two"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/textView5"

@@ -4,6 +4,7 @@ package com.kolektesan.julio.kolektesan.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,8 +93,18 @@ public class PubFragment extends Fragment {
         adapter.add(pub1);
         adapter.add(pub2);
         adapter.notifyDataSetChanged();
+
+        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+        toolbar.setTitle("Sensibilisations");
         return v;
     }
+
+  /*  @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+        toolbar.setTitle("Media tisations");
+    }*/
 
 
 }

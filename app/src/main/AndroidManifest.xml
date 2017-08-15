@@ -38,7 +38,9 @@
         <activity
             android:name=".activity.ProfilDrawerActivity"
             android:label="@string/title_activity_profil_drawer"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".AboutKolekte" />
+        <activity android:name=".activity.Login"></activity>
     </application>
 
 </manifest>

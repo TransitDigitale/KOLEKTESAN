@@ -19,6 +19,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.kolektesan.julio.kolektesan.AboutKolekte;
 import com.kolektesan.julio.kolektesan.R;
 import com.kolektesan.julio.kolektesan.fragment.FragmentInfos;
 import com.kolektesan.julio.kolektesan.fragment.FragmentListInfo;
@@ -103,6 +104,11 @@ public class Home extends AppCompatActivity {
                 Intent profil =  new Intent(this, ProfilDrawerActivity.class);
                 startActivity(profil);
                 break;
+            case R.id.nav_about:
+                Intent about =  new Intent(this, AboutKolekte.class);
+                startActivity(about);
+                break;
+
               /*
                 case R.id.nav_second_fragment:
                     fragmentClass = SecondFragment.class;
