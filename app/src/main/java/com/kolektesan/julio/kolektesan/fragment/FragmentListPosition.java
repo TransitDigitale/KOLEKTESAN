@@ -4,6 +4,8 @@ package com.kolektesan.julio.kolektesan.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +32,7 @@ public class FragmentListPosition extends Fragment {
             centre , centre2,
             centre3 , centre4,
             centre5 , centre6;
+   public SwipeRefreshLayout swipeContainer;
 
     public FragmentListPosition() {
         // Required empty public constructor
@@ -93,8 +96,42 @@ public class FragmentListPosition extends Fragment {
         adapter.add(centre6);
 
         adapter.notifyDataSetChanged();
+        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+        toolbar.setTitle("Postion des centre de transfusion");
+
+
+        swipeContainer = (SwipeRefreshLayout)v.findViewById(R.id.swipeContainer);
+        // Setup refresh listener which triggers new data loading
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // Your code to refresh the list here.
+                // Make sure you call swipeContainer.setRefreshing(false)
+                // once the network request has completed successfully.
+                fetchTimelineAsync(0);
+            }
+        });
+        // Configure the refreshing colors
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
+
         return v;
+
+
+    }
+    public void fetchTimelineAsync(int page) {
+       // adapter.clear();
+        swipeContainer.setRefreshing(false);
     }
 
-
+    /*
+        @Override
+        public void onActivityCreated(Bundle savedInstanceState) {
+            super.onActivityCreated(savedInstanceState);
+            Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+            toolbar.setTitle("Liste de postion");
+        }
+    */
 }
