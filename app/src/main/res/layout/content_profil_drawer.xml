@@ -23,25 +23,26 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
     </android.support.design.widget.AppBarLayout>
+
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="340dp"
-        tools:context="com.kolektesan.julio.kolektesan.activity.ProfilDrawerActivity"
-        tools:ignore="ScrollViewSize"
-        android:layout_below="@+id/appBarLayout"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/appBarLayout"
+        tools:context="com.kolektesan.julio.kolektesan.activity.ProfilDrawerActivity"
+        tools:ignore="ScrollViewSize">
 
         <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/two"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/ivlocal"
@@ -96,85 +97,85 @@
 
         </RelativeLayout>
 
-            <Button
-                android:id="@+id/btnFait"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentStart="true"
-                android:background="#fff"
-                android:text="planifier mon prochain don"
-                android:textColor="@color/colorPrimary"
-                tools:ignore="HardcodedText" />
+        <Button
+            android:id="@+id/btnFait"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:background="#fff"
+            android:text="planifier mon prochain don"
+            android:textColor="@color/colorPrimary"
+            tools:ignore="HardcodedText" />
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/two"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginBottom="20dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginStart="15dp"
-                android:text="Dernier don effectué!"
-                tools:ignore="HardcodedText" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/two"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:text="Dernier don effectué!"
+            tools:ignore="HardcodedText" />
 
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/textView4"
-                android:layout_alignStart="@+id/textView4"
-                android:layout_below="@+id/textView4"
-                android:layout_marginTop="43dp"
-                android:text="GS:"
-                tools:ignore="HardcodedText" />
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView4"
+            android:layout_alignStart="@+id/textView4"
+            android:layout_below="@+id/textView4"
+            android:layout_marginTop="43dp"
+            android:text="GS:"
+            tools:ignore="HardcodedText" />
 
-            <TextView
-                android:id="@+id/tvGS"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/textView5"
-                android:layout_marginLeft="8sp"
-                android:layout_toEndOf="@+id/textView5"
-                android:layout_toRightOf="@+id/textView5"
-                android:text="B+"
-                tools:ignore="HardcodedText,RtlHardcoded" />
+        <TextView
+            android:id="@+id/tvGS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textView5"
+            android:layout_marginLeft="8sp"
+            android:layout_toEndOf="@+id/textView5"
+            android:layout_toRightOf="@+id/textView5"
+            android:text="B+"
+            tools:ignore="HardcodedText,RtlHardcoded" />
 
-            <TextView
-                android:id="@+id/tvAdresse"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/textView5"
-                android:layout_alignStart="@+id/textView5"
-                android:layout_below="@+id/textView5"
-                android:layout_marginTop="15dp"
-                android:text="@string/adresse" />
+        <TextView
+            android:id="@+id/tvAdresse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView5"
+            android:layout_alignStart="@+id/textView5"
+            android:layout_below="@+id/textView5"
+            android:layout_marginTop="15dp"
+            android:text="@string/adresse" />
 
-            <TextView
-                android:id="@+id/tvTe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/tvAdresse"
-                android:layout_alignStart="@+id/tvAdresse"
-                android:layout_below="@+id/tvAdresse"
-                android:layout_marginTop="12dp"
-                android:text="Tel"
-                tools:ignore="HardcodedText" />
+        <TextView
+            android:id="@+id/tvTe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tvAdresse"
+            android:layout_alignStart="@+id/tvAdresse"
+            android:layout_below="@+id/tvAdresse"
+            android:layout_marginTop="12dp"
+            android:text="Tel"
+            tools:ignore="HardcodedText" />
 
-            <TextView
-                android:id="@+id/tvQsang"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/tvTe"
-                android:layout_alignStart="@+id/tvTe"
-                android:layout_below="@+id/tvTe"
-                android:layout_marginTop="13dp"
-                android:text="Qte sang"
-                tools:ignore="HardcodedText" />
+        <TextView
+            android:id="@+id/tvQsang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tvTe"
+            android:layout_alignStart="@+id/tvTe"
+            android:layout_below="@+id/tvTe"
+            android:layout_marginTop="13dp"
+            android:text="Qte sang"
+            tools:ignore="HardcodedText" />
     </RelativeLayout>
 </RelativeLayout>

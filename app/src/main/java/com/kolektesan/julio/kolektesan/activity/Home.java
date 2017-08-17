@@ -29,6 +29,7 @@ import com.backendless.exceptions.BackendlessFault;
 import com.backendless.property.ObjectProperty;
 import com.kolektesan.julio.kolektesan.R;
 import com.kolektesan.julio.kolektesan.fragment.FragmentInfos;
+import com.kolektesan.julio.kolektesan.fragment.FragmentListDemande;
 import com.kolektesan.julio.kolektesan.fragment.FragmentListInfo;
 import com.kolektesan.julio.kolektesan.fragment.FragmentListPosition;
 import com.kolektesan.julio.kolektesan.fragment.FragmentProfil;
@@ -84,7 +85,7 @@ public class Home extends AppCompatActivity {
             String userName = prefs.getString("name", "n/a");
             String email = prefs.getString("email", "n/a");
             String img = prefs.getString("imageUri","default.png");
-            Picasso.with(Home.this).load(img).resize(400 ,400).centerCrop().placeholder(R.drawable.ic_menu_gallery).into(imHeader);
+            Picasso.with(Home.this).load(img).resize(400 ,400).centerCrop().placeholder(R.drawable.julio).into(imHeader);
             //populate info on Drawer
             tvName.setText(userName);
         }else{
@@ -92,7 +93,7 @@ public class Home extends AppCompatActivity {
             String userName = prefs.getString("name", "n/a");
             String email = prefs.getString("email", "n/a");
             String img = prefs.getString("imageUri","default.png");
-            Picasso.with(Home.this).load(img).resize(400 ,400).centerCrop().placeholder(R.drawable.ic_menu_gallery).into(imHeader);
+            Picasso.with(Home.this).load(img).resize(400 ,400).centerCrop().placeholder(R.drawable.julio).into(imHeader);
             //populate info on Drawer
             tvName.setText(userName);
         }
@@ -204,8 +205,8 @@ public class Home extends AppCompatActivity {
     public class ArticlesPagerAdapter extends FragmentPagerAdapter implements PagerSlidingTabStrip.IconTabProvider {
         final int PAGE_COUNT = 5;
         //private String tabTitles[] = new String[]{"Mes Institutions","Mes Formations" ,"Mes Participants"};
-        private int tabTitles[] = {R.drawable.ic_action_home, R.drawable.ic_action_inf, R.drawable.ic_action_menu,
-                R.drawable.ic_action_stat ,R.drawable.ic_action_person};
+        private int tabTitles[] = {R.drawable.ic_action_home, R.drawable.ic_action_inf, R.drawable.ic_action_medi,
+                R.drawable.ic_action_stat ,R.drawable.ic_action_ask};
 
         public ArticlesPagerAdapter(android.support.v4.app.FragmentManager fm) {
             super(fm);
@@ -227,7 +228,7 @@ public class Home extends AppCompatActivity {
             }else if (position == 3) {
                 return new FragmentInfos();
             } else if (position == 4) {
-                return new FragmentProfil();
+                return new FragmentListDemande();
             } else {
                 return null;
             }
