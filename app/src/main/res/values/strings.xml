@@ -114,5 +114,6 @@
     <string name="slide_4_desc">Toujou envite lot zanmi w fe men m bagay la ave w</string>
     <string name="title_activity_player_music">PlayerMusic</string>
     <string name="title_activity_profil_drawer">ProfilDrawerActivity</string>
+    <string name="champsVides">Tous les champs doivent etres remplis</string>
 
 </resources>

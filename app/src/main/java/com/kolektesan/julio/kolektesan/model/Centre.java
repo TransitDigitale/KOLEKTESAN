@@ -1,5 +1,7 @@
 package com.kolektesan.julio.kolektesan.model;
 
+import com.backendless.property.ObjectProperty;
+
 import java.io.Serializable;
 
 /**
@@ -23,12 +25,12 @@ public class Centre implements Serializable {
         this.img = img;
     }
 
-    public String getType() {
-        return type;
+    public String getTypee() {
+        return typee;
     }
 
     public void setType(String type) {
-        this.type = type;
+        this.typee = type;
     }
 
     public String getTrlrphone() {
@@ -40,7 +42,7 @@ public class Centre implements Serializable {
     }
 
     public  String lieu;
-  public  String img;
-  public  String type;
-  public  String trlrphone;
+    public  String img;
+    public  String typee;
+    public  String trlrphone;
 }

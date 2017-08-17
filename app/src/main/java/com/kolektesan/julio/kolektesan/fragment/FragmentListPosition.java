@@ -1,34 +1,45 @@
 package com.kolektesan.julio.kolektesan.fragment;
-
-
+import com.backendless.Backendless;
+import com.backendless.IDataStore;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.backendless.persistence.DataQueryBuilder;
+import com.backendless.property.ObjectProperty;
 import com.kolektesan.julio.kolektesan.R;
 import com.kolektesan.julio.kolektesan.activity.Details;
 import com.kolektesan.julio.kolektesan.adapter.CentreAdapter;
 import com.kolektesan.julio.kolektesan.model.Centre;
+import com.kolektesan.julio.kolektesan.util.BackendlessSetting;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+import static com.kolektesan.julio.kolektesan.util.BackendlessSetting.APP_ID;
+import static com.kolektesan.julio.kolektesan.util.BackendlessSetting.SECRET_KEY;
+
 public class FragmentListPosition extends Fragment {
 
     ArrayList<Centre> centres;
     CentreAdapter adapter;
     ListView lvCentre;
-    public Centre
+   public Centre
             centre , centre2,
             centre3 , centre4,
             centre5 , centre6;
@@ -43,6 +54,23 @@ public class FragmentListPosition extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_fragment_list_position, container, false);
+        /*Backendless.setUrl( BackendlessSetting.SERVER_URL );
+        Backendless.initApp(this, APP_ID, SECRET_KEY);*/
+
+        /* Backendless.Persistence.describe( "Centre", new AsyncCallback<List<ObjectProperty>>() {
+            @Override
+            public void handleResponse(List<ObjectProperty> response) {
+                Iterator<ObjectProperty> iterator = (Iterator<ObjectProperty>) response;
+                while( iterator.hasNext() ){
+                    ObjectProperty propDef = iterator.next();
+                }
+            }
+
+            @Override
+            public void handleFault(BackendlessFault fault) {
+
+            }
+        });*/
 
         centre = new Centre();
         centre.setLieu("Port au prince");
@@ -75,30 +103,21 @@ public class FragmentListPosition extends Fragment {
         centre6.setType("DDS");
 
         lvCentre = (ListView) v.findViewById(R.id.lvCentre);
+        findList();
         lvCentre.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Centre details = centres.get(i);
                 Intent intent = new Intent(getContext(), Details.class);
-                intent.putExtra("details",details);
+                intent.putExtra("details", (Serializable) details);
                 startActivity(intent);
             }
         });
 
-        centres = new ArrayList<>();
-        adapter = new CentreAdapter(getContext(), centres);
-        lvCentre.setAdapter(adapter);
-        adapter.add(centre);
-        adapter.add(centre2);
-        adapter.add(centre3);
-        adapter.add(centre4);
-        adapter.add(centre5);
-        adapter.add(centre6);
+        //adapter.notifyDataSetChanged();
 
-        adapter.notifyDataSetChanged();
         Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
         toolbar.setTitle("Postion des centre de transfusion");
-
 
         swipeContainer = (SwipeRefreshLayout)v.findViewById(R.id.swipeContainer);
         // Setup refresh listener which triggers new data loading
@@ -116,11 +135,21 @@ public class FragmentListPosition extends Fragment {
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
-
         return v;
-
-
     }
+
+    public void findList() {
+        centres = new ArrayList<>();
+        adapter = new CentreAdapter(getContext(), centres);
+        lvCentre.setAdapter(adapter);
+        adapter.add(centre);
+        adapter.add(centre2);
+        adapter.add(centre3);
+        adapter.add(centre4);
+        adapter.add(centre5);
+        adapter.add(centre6);
+    }
+
     public void fetchTimelineAsync(int page) {
        // adapter.clear();
         swipeContainer.setRefreshing(false);

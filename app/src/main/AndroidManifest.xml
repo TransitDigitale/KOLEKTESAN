@@ -3,6 +3,8 @@
     package="com.kolektesan.julio.kolektesan">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -29,7 +31,7 @@
             android:name=".activity.ScrollingActivityDetailArticle"
             android:label="@string/title_activity_scrolling_detail_article"
             android:theme="@style/AppTheme" />
-        <activity android:name=".MusicActivity" />
+        <activity android:name=".activity.MusicActivity" />
         <activity
             android:name=".activity.PlayerMusic"
             android:label="@string/title_activity_player_music"
@@ -39,7 +41,7 @@
             android:name=".activity.ProfilDrawerActivity"
             android:label="@string/title_activity_profil_drawer"
             android:theme="@style/AppTheme" />
-        <activity android:name=".AboutKolekte" />
+        <activity android:name=".activity.AboutKolekte" />
         <activity android:name=".activity.Login"></activity>
     </application>
 

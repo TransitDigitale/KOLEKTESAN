@@ -58,7 +58,7 @@ public class Details extends AppCompatActivity {
 
         centre =  (Centre) getIntent().getSerializableExtra("details");
         tvVille.setText(centre.getLieu().toString());
-        tvAdresse.setText(centre.getType().toString());
+        tvAdresse.setText(centre.getTypee().toString());
 
     }
 
