@@ -11,13 +11,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.kolektesan.julio.kolektesan.R;
 import com.kolektesan.julio.kolektesan.activity.Details;
 import com.kolektesan.julio.kolektesan.adapter.CentreAdapter;
 import com.kolektesan.julio.kolektesan.model.Centre;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.json.JSONArray;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import cz.msebera.android.httpclient.Header;
 
 
 /**
@@ -25,13 +33,11 @@ import java.util.ArrayList;
  */
 public class FragmentListPosition extends Fragment {
 
-    ArrayList<Centre> centres;
+    ArrayList<Centre> ListCentres;
     CentreAdapter adapter;
     ListView lvCentre;
     public Centre
-            centre , centre2,
-            centre3 , centre4,
-            centre5 , centre6;
+            centre;
    public SwipeRefreshLayout swipeContainer;
 
     public FragmentListPosition() {
@@ -44,58 +50,24 @@ public class FragmentListPosition extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_fragment_list_position, container, false);
 
-        centre = new Centre();
-        centre.setLieu("Port au prince");
-        centre.setTrlrphone("+509 22888800");
-        centre.setType("PTS");
-
-        centre2 = new Centre();
-        centre2.setLieu("Jacmel");
-        centre2.setTrlrphone("+509 22888822");
-        centre2.setType("DDS");
-
-        centre3 = new Centre();
-        centre3.setLieu("Port de Paix");
-        centre3.setTrlrphone("+509 22888892");
-        centre3.setType("DDS");
-
-        centre4 = new Centre();
-        centre4.setLieu("Geremie");
-        centre4.setTrlrphone("+509 22880022");
-        centre4.setType("PTS");
-
-        centre5 = new Centre();
-        centre5.setLieu("Gonaives");
-        centre5.setTrlrphone("+509 33888822");
-        centre5.setType("PTS");
-
-        centre6 = new Centre();
-        centre6.setLieu("Hinche");
-        centre6.setTrlrphone("+50942888822");
-        centre6.setType("DDS");
+        lvCentre = (ListView) v.findViewById(R.id.lvCentre);
 
         lvCentre = (ListView) v.findViewById(R.id.lvCentre);
+        ListCentres = new ArrayList<>();
+        adapter = new CentreAdapter(getContext(), ListCentres);
+
+        lvCentre.setAdapter(adapter);
+
         lvCentre.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Centre details = centres.get(i);
+                Centre details = ListCentres.get(i);
                 Intent intent = new Intent(getContext(), Details.class);
                 intent.putExtra("details",details);
                 startActivity(intent);
             }
         });
 
-        centres = new ArrayList<>();
-        adapter = new CentreAdapter(getContext(), centres);
-        lvCentre.setAdapter(adapter);
-        adapter.add(centre);
-        adapter.add(centre2);
-        adapter.add(centre3);
-        adapter.add(centre4);
-        adapter.add(centre5);
-        adapter.add(centre6);
-
-        adapter.notifyDataSetChanged();
         Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
         toolbar.setTitle("Postion des centre de transfusion");
 
@@ -109,6 +81,7 @@ public class FragmentListPosition extends Fragment {
                 // Make sure you call swipeContainer.setRefreshing(false)
                 // once the network request has completed successfully.
                 fetchTimelineAsync(0);
+                findArticle();
             }
         });
         // Configure the refreshing colors
@@ -116,14 +89,66 @@ public class FragmentListPosition extends Fragment {
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
-
+        findArticle();
         return v;
 
 
     }
     public void fetchTimelineAsync(int page) {
-       // adapter.clear();
+        adapter.clear();
+        // findArticle();
         swipeContainer.setRefreshing(false);
+    }
+
+    public void findArticle() {
+        String url = "https://shareblood.herokuapp.com/api/centres";
+        AsyncHttpClient client = new AsyncHttpClient();
+        client.get(url,new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                super.onSuccess(statusCode, headers, response);
+                JSONArray jobJsonPosts = response;
+                ListCentres.addAll(Centre.fromJSONArray(jobJsonPosts));
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
+                super.onFailure(statusCode, headers, throwable, errorResponse);
+                Toast.makeText(getContext(), "Error " + errorResponse.toString() , Toast.LENGTH_SHORT).show();
+            }
+        });
+        /*
+        client.get(url, new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, PreferenceActivity.Header[] headers, JSONArray response) {
+                super.onSuccess(statusCode, headers, response);
+                JSONArray jobJsonPosts = response;
+                // jobJsonPosts = response;
+                ListCentres.addAll(Centre.fromJSONArray(jobJsonPosts));
+                adapter.notifyDataSetChanged();
+                Toast.makeText(getContext(), "Test result " + jobJsonPosts.toString() , Toast.LENGTH_SHORT).show();
+                Log.d("DEBUG", jobJsonPosts.toString() );
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
+                super.onFailure(statusCode, headers, throwable, errorResponse);
+                Toast.makeText(getContext(), "test result " +errorResponse.toString() , Toast.LENGTH_SHORT).show();
+            }
+        });*/
+
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        ListCentres  = new ArrayList<>();
+        adapter = new CentreAdapter(getActivity(),ListCentres);
+    }
+
+    public void addAll(List<Centre> offres){
+        adapter.addAll(offres);
     }
 
     /*

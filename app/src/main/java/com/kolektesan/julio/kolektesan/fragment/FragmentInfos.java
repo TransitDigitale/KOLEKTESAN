@@ -38,7 +38,7 @@ public class FragmentInfos extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_fragment_list_position, container, false);
-
+/*
         centre = new Centre();
         centre.setLieu("Kantite pochet moun rive bay");
         centre.setTrlrphone("25963 moun");
@@ -67,7 +67,7 @@ public class FragmentInfos extends Fragment {
 
         lvCentre = (ListView) v.findViewById(R.id.lvCentre);
 
-       /*
+       *//*
         lvCentre.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -77,7 +77,7 @@ public class FragmentInfos extends Fragment {
                 startActivity(intent);
             }
         });
-        */
+        *//*
 
         centres = new ArrayList<>();
         adapter = new CentreAdapter(getContext(), centres);
@@ -89,7 +89,7 @@ public class FragmentInfos extends Fragment {
         adapter.add(centre5);
 
         adapter.notifyDataSetChanged();
-        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+       */ Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
         toolbar.setTitle("Informations");
         return v;
     }

@@ -43,7 +43,7 @@ public class Details extends AppCompatActivity {
         call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onCall(centre.getTrlrphone());
+                 onCall(centre.getTrlrphone());
                 Toast.makeText(Details.this, "Call " +centre.getTrlrphone(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -58,7 +58,7 @@ public class Details extends AppCompatActivity {
 
         centre =  (Centre) getIntent().getSerializableExtra("details");
         tvVille.setText(centre.getLieu().toString());
-        tvAdresse.setText(centre.getType().toString());
+        tvAdresse.setText(centre.getTrlrphone().toString());
 
     }
 
@@ -68,8 +68,6 @@ public class Details extends AppCompatActivity {
         callIntent.setData(Uri.parse("tel:" + tel));
         if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             return;
-        }else {
-            Toast.makeText(this, "Pas de permisions", Toast.LENGTH_SHORT).show();
         }
         startActivity(callIntent);
     }

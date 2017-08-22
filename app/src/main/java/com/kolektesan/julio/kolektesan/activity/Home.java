@@ -108,7 +108,17 @@ public class Home extends AppCompatActivity {
                 Intent about =  new Intent(this, AboutKolekte.class);
                 startActivity(about);
                 break;
-
+            case R.id.demande:
+                Intent demande =  new Intent(this, Demande.class);
+                startActivity(demande);
+                break;
+            case R.id.planifier:
+                Intent planifier =  new Intent(this, Planifier.class);
+                startActivity(planifier);
+                break;
+            case R.id.logOut:
+                System.exit(1);
+                break;
               /*
                 case R.id.nav_second_fragment:
                     fragmentClass = SecondFragment.class;

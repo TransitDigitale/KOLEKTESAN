@@ -7,16 +7,16 @@
             android:icon="@drawable/ic_action_person"
             android:title="Profil" />
         <item
-            android:id="@+id/informations"
+            android:id="@+id/demande"
             android:icon="@drawable/ic_action_stat"
-            android:title="Statistiques" />
+            android:title="Effectuer une demande " />
         <item
-            android:id="@+id/vidoes"
+            android:id="@+id/planifier"
             android:icon="@drawable/ic_action_video"
-            android:title="Questionnaire" />
+            android:title="Planifier un don" />
     </group>
 
-    <item android:title="">
+    <item android:title="" android:checkableBehavior="single">
         <menu>
             <item
                 android:id="@+id/nav_share"
@@ -37,6 +37,10 @@
                 android:icon="@drawable/ic_action_programing"
                 android:id="@+id/codingBy"
                 android:title="Powered By Transition Digitale" />
+            <item
+                android:icon="@drawable/ic_action_logout"
+                android:id="@+id/logOut"
+                android:title="Deconnexion" />
 
         </menu>
     </item>

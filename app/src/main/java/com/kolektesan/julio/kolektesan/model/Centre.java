@@ -1,6 +1,11 @@
 package com.kolektesan.julio.kolektesan.model;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * Created by carly.baja on 8/6/2017.
@@ -40,7 +45,26 @@ public class Centre implements Serializable {
     }
 
     public  String lieu;
-  public  String img;
-  public  String type;
-  public  String trlrphone;
+    public  String img;
+    public  String type;
+    public  String trlrphone;
+
+
+    public Centre (JSONObject jsonObject) throws JSONException {
+        this.lieu = jsonObject.getString("lieu");
+        this.trlrphone = jsonObject.getString("telephone");
+       // this.img = jsonObject.getString("photo");
+    }
+
+    public static ArrayList<Centre> fromJSONArray(JSONArray array) {
+        ArrayList<Centre> results = new ArrayList<>();
+        for (int x = 0; x < array.length(); x++){
+            try {
+                results.add (new Centre(array.getJSONObject(x)));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return results;
+    }
 }

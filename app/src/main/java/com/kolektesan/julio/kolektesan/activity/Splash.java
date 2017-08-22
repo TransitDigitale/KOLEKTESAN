@@ -22,7 +22,7 @@ public class Splash extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                //Create an Intent that will start the Menu-Activity.
+                // Create an Intent that will start the Menu-Activity.
                 Intent intent = new Intent(Splash.this, Login.class);
                 startActivity(intent);
                 finish();
