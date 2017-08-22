@@ -1,6 +1,4 @@
 package com.kolektesan.julio.kolektesan.fragment;
-
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -27,10 +25,6 @@ import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class FragmentListPosition extends Fragment {
 
     ArrayList<Centre> ListCentres;
@@ -118,26 +112,6 @@ public class FragmentListPosition extends Fragment {
                 Toast.makeText(getContext(), "Error " + errorResponse.toString() , Toast.LENGTH_SHORT).show();
             }
         });
-        /*
-        client.get(url, new JsonHttpResponseHandler(){
-            @Override
-            public void onSuccess(int statusCode, PreferenceActivity.Header[] headers, JSONArray response) {
-                super.onSuccess(statusCode, headers, response);
-                JSONArray jobJsonPosts = response;
-                // jobJsonPosts = response;
-                ListCentres.addAll(Centre.fromJSONArray(jobJsonPosts));
-                adapter.notifyDataSetChanged();
-                Toast.makeText(getContext(), "Test result " + jobJsonPosts.toString() , Toast.LENGTH_SHORT).show();
-                Log.d("DEBUG", jobJsonPosts.toString() );
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
-                super.onFailure(statusCode, headers, throwable, errorResponse);
-                Toast.makeText(getContext(), "test result " +errorResponse.toString() , Toast.LENGTH_SHORT).show();
-            }
-        });*/
-
     }
 
     @Override

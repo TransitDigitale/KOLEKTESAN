@@ -17,25 +17,23 @@
         android:src="@drawable/usera"
         app:civ_border_color="#fff"
         app:civ_border_width="2dp"
-        android:layout_centerVertical="true"
 
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="15dp" />
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView" />
 
     <TextView
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="11dp"
         android:text="Julio Jean Fils"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:id="@+id/textView" />
 
 
 </RelativeLayout>
