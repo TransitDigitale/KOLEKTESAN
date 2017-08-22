@@ -12,13 +12,11 @@
         android:id="@+id/imageView7"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_marginTop="32dp"
+        android:foregroundGravity="center"
+        android:src="@drawable/bloodsplas"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="129dp"
-        android:layout_marginStart="129dp"
-        android:layout_marginTop="39dp"
-        app:srcCompat="@drawable/bloodsplas" />
+        android:layout_centerHorizontal="true" />
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
@@ -30,6 +28,7 @@
         android:layout_alignParentStart="true">
 
         <EditText
+            android:id="@+id/edtName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Votre nom complet" />
@@ -45,9 +44,11 @@
         android:layout_marginTop="15dp">
 
         <EditText
+            android:id="@+id/edtTelephone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Telephone" />
+            android:hint="Telephone"
+            android:inputType="phone" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -60,9 +61,10 @@
         android:layout_marginTop="18dp">
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/edtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:hint="Mot de passe" />
     </android.support.design.widget.TextInputLayout>
 
@@ -74,10 +76,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
-        android:background="@color/colorPrimary"
-        android:textColor="#fff"
         android:layout_below="@+id/textInputLayout3"
         android:layout_marginTop="15dp"
-        android:text="Se connecter" />
+        android:background="@color/colorPrimary"
+        android:text="S'inscrire"
+        android:textColor="#fff" />
 
 </RelativeLayout>

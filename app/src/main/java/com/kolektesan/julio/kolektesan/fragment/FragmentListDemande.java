@@ -1,40 +1,24 @@
 package com.kolektesan.julio.kolektesan.fragment;
-import com.backendless.Backendless;
-import com.backendless.IDataStore;
-import com.backendless.async.callback.AsyncCallback;
-import com.backendless.exceptions.BackendlessFault;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.backendless.persistence.DataQueryBuilder;
-import com.backendless.property.ObjectProperty;
 import com.kolektesan.julio.kolektesan.R;
 import com.kolektesan.julio.kolektesan.activity.Details;
 import com.kolektesan.julio.kolektesan.adapter.CentreAdapter;
 import com.kolektesan.julio.kolektesan.model.Centre;
-import com.kolektesan.julio.kolektesan.util.BackendlessSetting;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import static com.kolektesan.julio.kolektesan.util.BackendlessSetting.APP_ID;
-import static com.kolektesan.julio.kolektesan.util.BackendlessSetting.SECRET_KEY;
-
-public class FragmentListPosition extends Fragment {
+public class FragmentListDemande extends Fragment {
 
     ArrayList<Centre> centres;
     CentreAdapter adapter;
@@ -45,7 +29,7 @@ public class FragmentListPosition extends Fragment {
             centre5 , centre6;
    public SwipeRefreshLayout swipeContainer;
 
-    public FragmentListPosition() {
+    public FragmentListDemande() {
         // Required empty public constructor
     }
 
@@ -73,34 +57,24 @@ public class FragmentListPosition extends Fragment {
         });*/
 
         centre = new Centre();
-        centre.setLieu("Port au prince");
-        centre.setTrlrphone("+509 22888800");
-        centre.setType("PTS");
+        centre.setLieu("Charles Lopes");
+        centre.setTrlrphone("3 Grammes");
+        centre.setType("B+");
 
         centre2 = new Centre();
-        centre2.setLieu("Jacmel");
-        centre2.setTrlrphone("+509 22888822");
-        centre2.setType("DDS");
+        centre2.setLieu("Jean Baptiste Daniel");
+        centre2.setTrlrphone("2 Grammes");
+        centre2.setType("O+");
 
         centre3 = new Centre();
-        centre3.setLieu("Port de Paix");
-        centre3.setTrlrphone("+509 22888892");
-        centre3.setType("DDS");
+        centre3.setLieu("Guerrier Laika");
+        centre3.setTrlrphone("3 Grammes");
+        centre3.setType("B+");
 
         centre4 = new Centre();
-        centre4.setLieu("Geremie");
-        centre4.setTrlrphone("+509 22880022");
-        centre4.setType("PTS");
-
-        centre5 = new Centre();
-        centre5.setLieu("Gonaives");
-        centre5.setTrlrphone("+509 33888822");
-        centre5.setType("PTS");
-
-        centre6 = new Centre();
-        centre6.setLieu("Hinche");
-        centre6.setTrlrphone("+50942888822");
-        centre6.setType("DDS");
+        centre4.setLieu("Guy Danjour");
+        centre4.setTrlrphone("4 Grammes");
+        centre4.setType("O-");
 
         lvCentre = (ListView) v.findViewById(R.id.lvCentre);
         findList();
@@ -117,7 +91,7 @@ public class FragmentListPosition extends Fragment {
         //adapter.notifyDataSetChanged();
 
         Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
-        toolbar.setTitle("Postion des centre de transfusion");
+        toolbar.setTitle("Demande de sang en urgence");
 
         swipeContainer = (SwipeRefreshLayout)v.findViewById(R.id.swipeContainer);
         // Setup refresh listener which triggers new data loading
@@ -146,8 +120,6 @@ public class FragmentListPosition extends Fragment {
         adapter.add(centre2);
         adapter.add(centre3);
         adapter.add(centre4);
-        adapter.add(centre5);
-        adapter.add(centre6);
     }
 
     public void fetchTimelineAsync(int page) {

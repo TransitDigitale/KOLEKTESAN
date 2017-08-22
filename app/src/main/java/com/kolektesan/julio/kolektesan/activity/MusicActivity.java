@@ -1,7 +1,9 @@
-package com.kolektesan.julio.kolektesan;
+package com.kolektesan.julio.kolektesan.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.kolektesan.julio.kolektesan.R;
 
 public class MusicActivity extends AppCompatActivity {
 

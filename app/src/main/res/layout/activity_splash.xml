@@ -8,15 +8,13 @@
         tools:context="com.kolektesan.julio.kolektesan.activity.Splash">
 
         <ImageView
-
             android:id="@+id/splash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-           android:layout_marginTop="50dp"
-            android:contentDescription=""
+            android:layout_marginTop="186dp"
             android:scaleType="centerInside"
-            android:src="@drawable/splash"
-            tools:ignore="ContentDescription" />
-
-
+            android:src="@drawable/bloodsplas"
+            tools:ignore="ContentDescription"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
 </RelativeLayout>

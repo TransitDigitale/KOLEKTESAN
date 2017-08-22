@@ -8,9 +8,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.backendless.property.ObjectProperty;
 import com.kolektesan.julio.kolektesan.R;
 import com.kolektesan.julio.kolektesan.model.Centre;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -40,7 +42,7 @@ public class CentreAdapter extends ArrayAdapter<Centre> {
 
         tvVille.setText(centre.getLieu());
         tvAdresse.setText(centre.getTrlrphone());
-        tvType.setText(centre.getType());
+        tvType.setText(centre.getTypee());
 
         // populate the thumbNail images
         // remote download image in background
