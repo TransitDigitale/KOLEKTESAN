@@ -16,10 +16,10 @@ public class Planifier extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_demande);
+        setContentView(R.layout.activity_planifier);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Demande ");
+        getSupportActionBar().setTitle("Planifier ");
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         //getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

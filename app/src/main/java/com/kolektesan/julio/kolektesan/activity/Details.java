@@ -35,7 +35,6 @@ public class Details extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         //getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        btnFait = (Button)findViewById(R.id.btnFait);
 
         tvVille = (TextView) findViewById(R.id.tvVille);
         tvAdresse = (TextView) findViewById(R.id.tvAdresse);
@@ -48,17 +47,10 @@ public class Details extends AppCompatActivity {
             }
         });
 
-        btnFait.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i =  new Intent(Details.this, Profil.class);
-                startActivity(i);
-            }
-        });
-
         centre =  (Centre) getIntent().getSerializableExtra("details");
         tvVille.setText(centre.getLieu().toString());
         tvAdresse.setText(centre.getTrlrphone().toString());
+
 
     }
 

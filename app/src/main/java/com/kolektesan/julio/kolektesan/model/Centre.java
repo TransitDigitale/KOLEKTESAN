@@ -6,6 +6,13 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+
+import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * Created by carly.baja on 8/6/2017.
@@ -46,6 +53,7 @@ public class Centre implements Serializable {
 
     public  String lieu;
     public  String img;
+
     public  String type;
     public  String trlrphone;
 
@@ -67,4 +75,5 @@ public class Centre implements Serializable {
         }
         return results;
     }
+
 }

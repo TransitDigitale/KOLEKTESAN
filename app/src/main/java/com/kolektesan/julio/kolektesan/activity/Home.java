@@ -1,8 +1,10 @@
 package com.kolektesan.julio.kolektesan.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -17,15 +19,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.astuetz.PagerSlidingTabStrip;
-import com.kolektesan.julio.kolektesan.AboutKolekte;
 import com.kolektesan.julio.kolektesan.R;
 import com.kolektesan.julio.kolektesan.fragment.FragmentInfos;
+import com.kolektesan.julio.kolektesan.fragment.FragmentListDemande;
 import com.kolektesan.julio.kolektesan.fragment.FragmentListInfo;
 import com.kolektesan.julio.kolektesan.fragment.FragmentListPosition;
-import com.kolektesan.julio.kolektesan.fragment.FragmentProfil;
 import com.kolektesan.julio.kolektesan.fragment.PubFragment;
+import com.squareup.picasso.Picasso;
 
 public class Home extends AppCompatActivity {
     private DrawerLayout mDrawer;
@@ -34,8 +38,9 @@ public class Home extends AppCompatActivity {
     // Make sure to be using android.support.v7.app.ActionBarDrawerToggle version.
     // The android.support.v4.app.ActionBarDrawerToggle has been deprecated.
     private ActionBarDrawerToggle drawerToggle;
-
-
+    ImageView imHeader;
+    public TextView tvName;
+    SharedPreferences prefs ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +55,7 @@ public class Home extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         // getSupportActionBar().setTitle("KOLEKTE");
         // Find our drawer view
@@ -64,18 +70,15 @@ public class Home extends AppCompatActivity {
         mDrawer.addDrawerListener(drawerToggle);
 
         // We can now look up items within the header if needed
-        // ImageView ivHeaderPhoto = headerLayout.findViewById(R.id.iv);
-         /*
-             if(savedInstanceState==null){
-              */
-            /*
-            FragmentProfil fragmentr = new FragmentProfil();
-            // Insert the fragment by replacing any existing fragment
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.flContent, fragmentr).commit();
+        imHeader= (ImageView) nvDrawer.getHeaderView(0).findViewById(R.id.ivlocal);
+        tvName = (TextView) nvDrawer.getHeaderView(0).findViewById(R.id.TvName);
 
-           }
-        */
+        String userName = prefs.getString("name", "n/a");
+        String email = prefs.getString("email", "n/a");
+        String img = prefs.getString("imageUri","default.png");
+        Picasso.with(Home.this).load(img).resize(400 ,400).centerCrop().placeholder(R.drawable.ic_action_profil).into(imHeader);
+        //populate info on Drawer
+        tvName.setText(userName);
     }
 
     private void setupDrawerContent(NavigationView navigationView) {
@@ -117,7 +120,7 @@ public class Home extends AppCompatActivity {
                 startActivity(planifier);
                 break;
             case R.id.logOut:
-                System.exit(1);
+                logout();
                 break;
               /*
                 case R.id.nav_second_fragment:
@@ -149,6 +152,10 @@ public class Home extends AppCompatActivity {
         // Close the navigation drawer
         // mDrawer.closeDrawers();
     }
+    public void logout(){
+        prefs.edit().clear().commit();
+        System.exit(1);
+    }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -168,8 +175,8 @@ public class Home extends AppCompatActivity {
     public class ArticlesPagerAdapter extends FragmentPagerAdapter implements PagerSlidingTabStrip.IconTabProvider {
         final int PAGE_COUNT = 5;
         //private String tabTitles[] = new String[]{"Mes Institutions","Mes Formations" ,"Mes Participants"};
-        private int tabTitles[] = {R.drawable.ic_action_home, R.drawable.ic_action_inf, R.drawable.ic_action_menu,
-                R.drawable.ic_action_stat ,R.drawable.ic_action_person};
+        private int tabTitles[] = {R.drawable.ic_action_home, R.drawable.ic_action_inf, R.drawable.ic_action_medi,
+                R.drawable.ic_action_stat ,R.drawable.ic_action_ask};
 
         public ArticlesPagerAdapter(android.support.v4.app.FragmentManager fm) {
             super(fm);
@@ -191,7 +198,7 @@ public class Home extends AppCompatActivity {
             }else if (position == 3) {
                 return new FragmentInfos();
             } else if (position == 4) {
-                return new FragmentProfil();
+                return new FragmentListDemande();
             } else {
                 return null;
             }
