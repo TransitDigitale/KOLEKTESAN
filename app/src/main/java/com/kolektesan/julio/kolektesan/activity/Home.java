@@ -77,7 +77,7 @@ public class Home extends AppCompatActivity {
         String email = prefs.getString("email", "n/a");
         String img = prefs.getString("imageUri","default.png");
         Picasso.with(Home.this).load(img).resize(400 ,400).centerCrop().placeholder(R.drawable.ic_action_profil).into(imHeader);
-        //populate info on Drawer
+        // populate info on Drawer
         tvName.setText(userName);
     }
 

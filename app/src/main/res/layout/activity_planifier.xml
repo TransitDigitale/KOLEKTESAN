@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:text="Quantite donner"
             android:id="@+id/textView6"
-            android:layout_marginTop="47dp"
+            android:layout_marginTop="63dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
@@ -60,10 +60,8 @@
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:background="@color/colorPrimary"
         app:titleTextColor="@android:color/background_light"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="536dp">
+        android:layout_alignParentStart="true">
     </android.support.v7.widget.Toolbar>
 
     <Button

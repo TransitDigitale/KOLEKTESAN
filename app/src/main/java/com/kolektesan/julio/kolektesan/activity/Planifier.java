@@ -30,7 +30,7 @@ public class Planifier extends AppCompatActivity {
             public void onClick(View view) {
                 new AlertDialog.Builder(Planifier.this)
                         .setTitle("")
-                        .setMessage("Etres-vous sure de vouloir faire cette demande ? ")
+                        .setMessage("Etres-vous sure de vouloir faire cette palnification ? ")
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 //yes
