@@ -27,11 +27,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
-        <EditText
-            android:id="@+id/edtName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Votre nom complet" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -68,31 +63,31 @@
             android:hint="Mot de passe" />
     </android.support.design.widget.TextInputLayout>
 
-    <Button
-        android:id="@+id/btnLog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textInputLayout3"
-        android:layout_marginTop="15dp"
-        android:background="@color/colorPrimary"
-        android:text="S'inscrire"
-        android:textColor="#fff" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnLog"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:text=" J'ai déjà un compte!" />
+        android:layout_marginTop="36dp"
+        android:text="Pas de compte "
+        android:layout_below="@+id/btnConnect"
+        android:layout_centerHorizontal="true" />
 
     <Button
-        android:id="@+id/btnGoConnect"
+        android:id="@+id/btnConnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:text="Se connecter"
+        android:textColor="#fff"
+        android:layout_below="@+id/textInputLayout3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="12dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/btnGoSign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -100,9 +95,9 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView"
-        android:layout_marginTop="13dp"
-        android:background="@color/colorPrimaryDark"
-        android:text="Se connecter"
+        android:layout_marginTop="21dp"
+        android:background="@color/colorPrimary"
+        android:text="S'inscrire"
         android:textColor="#fff" />
 
 </RelativeLayout>

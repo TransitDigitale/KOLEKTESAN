@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
 import com.backendless.Backendless;
 import com.kolektesan.julio.kolektesan.R;
 import com.kolektesan.julio.kolektesan.util.BackendlessSetting;
@@ -18,61 +19,58 @@ import com.kolektesan.julio.kolektesan.util.BackendlessSetting;
 import static com.kolektesan.julio.kolektesan.util.BackendlessSetting.APP_ID;
 import static com.kolektesan.julio.kolektesan.util.BackendlessSetting.SECRET_KEY;
 
-public class Login extends AppCompatActivity {
-    Button btnLog , btnGoConnect;
-    EditText nom, telephone , password;
+public class Connect extends AppCompatActivity {
+    Button btnConnect , btnGoSign;
+    EditText telephone , password;
     ProgressDialog progress;
     SharedPreferences prefs ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_connect);
         Backendless.setUrl( BackendlessSetting.SERVER_URL );
         Backendless.initApp(this, APP_ID, SECRET_KEY);
 
         setupViews();
-        btnLog.setOnClickListener(new View.OnClickListener() {
+        btnConnect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                functionLogin();
+                functionConnect();
             }
         });
-        btnGoConnect.setOnClickListener(new View.OnClickListener() {
+        // btnGoSign = (Button)findViewById(R.id.btnGoSign);
+        btnGoSign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Login.this,Connect.class);
+                Intent intent = new Intent(Connect.this,Login.class);
                 startActivity(intent);
-                finish();
             }
         });
 
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if(prefs.getString("name", "none") !="none"){
+        if(prefs.getString("telephone", "none") !="none"){
             // Go to Home
-            Intent intent = new Intent(Login.this,Home.class);
+            Intent intent = new Intent(Connect.this,Home.class);
             startActivity(intent);
             finish();
         }
     }
 
     private void setupViews() {
-        btnLog = (Button)findViewById(R.id.btnLog);
-        btnGoConnect = (Button)findViewById(R.id.btnGoConnect);
-        nom = (EditText) findViewById(R.id.edtName);
+        btnConnect = (Button)findViewById(R.id.btnConnect);
+        btnGoSign = (Button)findViewById(R.id.btnGoSign);
         telephone = (EditText) findViewById(R.id.edtTelephone);
         password = (EditText) findViewById(R.id.edtPassword);
     }
-    public  void functionLogin(){
+    public  void functionConnect(){
         showLoading();
-        final String uNom ,uTel , uPass , uEmail;
-                uNom =  nom.getText().toString();
+        final String uTel , uPass ;
                 uTel =  telephone.getText().toString();
-                uEmail =  telephone.getText()+"@gmail.com".toString();
                 uPass =  password.getText().toString();
 
-        if ( uNom.equals("") || uTel.equals("") || uPass.equals("") ) {
-            new AlertDialog.Builder(Login.this)
+        if ( uTel.equals("") || uPass.equals("") ) {
+            new AlertDialog.Builder(Connect.this)
                     .setTitle("Infos")
                     .setMessage(R.string.champsVides)
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
@@ -86,21 +84,20 @@ public class Login extends AppCompatActivity {
         }else{
 
           /*Save users data in a sharepreferences*/
-            prefs = PreferenceManager.getDefaultSharedPreferences(Login.this);
+            prefs = PreferenceManager.getDefaultSharedPreferences(Connect.this);
             SharedPreferences.Editor editor = prefs.edit();
-            editor.putString("name", uNom);
-            editor.putString("email", uEmail);
+            editor.putString("password", uPass);
             editor.putString("telephone", uTel);
             editor.putString("ID_users",uTel);
             editor.commit();
             dimissLoading();
-            Intent intent = new Intent(Login.this,Home.class);
+            Intent intent = new Intent(Connect.this,Home.class);
             startActivity(intent);
             finish();
         }
     }
     public void showLoading(){
-        progress = ProgressDialog.show(Login.this, "Connexion","Patientez...",false,false);
+        progress = ProgressDialog.show(Connect.this, "Connexion","Patientez...",false,false);
     }
     public void dimissLoading(){
         progress.dismiss();

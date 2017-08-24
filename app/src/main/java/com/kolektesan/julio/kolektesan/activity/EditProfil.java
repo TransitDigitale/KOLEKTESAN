@@ -8,48 +8,42 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.backendless.Backendless;
 import com.kolektesan.julio.kolektesan.R;
-import com.kolektesan.julio.kolektesan.adapter.DemandeAdapter;
-import com.kolektesan.julio.kolektesan.model.*;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.squareup.picasso.Picasso;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-
 import cz.msebera.android.httpclient.Header;
 
-import static com.kolektesan.julio.kolektesan.R.id.ivlocal;
-
-public class ProfilDrawerActivity extends AppCompatActivity {
-    TextView tvVille ,tvGS ,tvAdresse ,
+public class EditProfil extends AppCompatActivity {
+    EditText tvGS ,tvAdresse ,
             tvTe ,tvQsang;
     ImageView ivlocal;
+    TextView tvVille;
     SharedPreferences prefs ;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_profil_drawer);
+        setContentView(R.layout.content_profil_edit);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Profil");
+        getSupportActionBar().setTitle("Modifier votre profil");
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         //getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        tvGS = (EditText)findViewById(R.id.tvGS);
+
         tvVille = (TextView)findViewById(R.id.tvVille);
-        tvGS = (TextView)findViewById(R.id.tvGS);
-        tvVille = (TextView)findViewById(R.id.tvVille);
-        tvAdresse = (TextView)findViewById(R.id.tvAdresse);
-        tvTe = (TextView)findViewById(R.id.tvTe);
-        tvQsang = (TextView)findViewById(R.id.tvQsang);
+        tvAdresse = (EditText)findViewById(R.id.tvAdresse);
+        tvTe = (EditText)findViewById(R.id.tvTe);
+        tvQsang = (EditText)findViewById(R.id.tvQsang);
 
         ivlocal = (ImageView) findViewById(R.id.ivlocal);
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -57,7 +51,7 @@ public class ProfilDrawerActivity extends AppCompatActivity {
         String userName = prefs.getString("name", "n/a");
         String email = prefs.getString("email", "n/a");
         String img = prefs.getString("imageUri","default.png");
-        Picasso.with(ProfilDrawerActivity.this).load(img).resize(400 ,400).centerCrop().placeholder(R.drawable.julio).into(ivlocal);
+        Picasso.with(EditProfil.this).load(img).resize(400 ,400).centerCrop().placeholder(R.drawable.julio).into(ivlocal);
         //populate info on Drawer
         tvVille.setText(userName);
         findStat();
@@ -91,7 +85,7 @@ public class ProfilDrawerActivity extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 super.onFailure(statusCode, headers, throwable, errorResponse);
-                Toast.makeText(ProfilDrawerActivity.this, "Error " + errorResponse.toString() , Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditProfil.this, "Error " + errorResponse.toString() , Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -106,7 +100,7 @@ public class ProfilDrawerActivity extends AppCompatActivity {
         }
     }
     public void clickEdit(View view){
-        Intent edit = new Intent(ProfilDrawerActivity.this, EditProfil.class);
+        Intent edit = new Intent(EditProfil.this, EditProfil.class);
         startActivity(edit);
         finish();
     }

@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
+import android.view.WindowManager;
 
 import com.backendless.Backendless;
 import com.kolektesan.julio.kolektesan.R;
@@ -46,7 +47,7 @@ public class Splash extends AppCompatActivity {
 
     public void checkLogStatus() {
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if(prefs.getString("name", "none") == "none"){
+        if(prefs.getString("telephone", "none") == "none"){
             Intent i = new Intent(getApplicationContext(), Login.class);
             startActivity(i);
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);

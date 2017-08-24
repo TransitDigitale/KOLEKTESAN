@@ -9,25 +9,34 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.kolektesan.julio.kolektesan.R;
 import com.kolektesan.julio.kolektesan.activity.Details;
 import com.kolektesan.julio.kolektesan.adapter.CentreAdapter;
+import com.kolektesan.julio.kolektesan.adapter.DemandeAdapter;
+import com.kolektesan.julio.kolektesan.adapter.StatistiqueAdapter;
 import com.kolektesan.julio.kolektesan.model.Centre;
+import com.kolektesan.julio.kolektesan.model.Demande;
+import com.kolektesan.julio.kolektesan.model.Statistique;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.json.JSONArray;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import cz.msebera.android.httpclient.Header;
+
 public class FragmentListDemande extends Fragment {
 
-    ArrayList<Centre> centres;
-    CentreAdapter adapter;
+    ArrayList<Demande> demandeArrayList;
+    DemandeAdapter adapter;
     ListView lvCentre;
-   public Centre
-            centre , centre2,
-            centre3 , centre4,
-            centre5 , centre6;
-   public SwipeRefreshLayout swipeContainer;
+    ProgressBar progressBar;
+    public SwipeRefreshLayout swipeContainer;
 
     public FragmentListDemande() {
         // Required empty public constructor
@@ -38,23 +47,25 @@ public class FragmentListDemande extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_fragment_list_position, container, false);
-     
+
+        adapter.notifyDataSetChanged();
+
         lvCentre = (ListView) v.findViewById(R.id.lvCentre);
-        findList();
+        progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
+
+        demandeArrayList = new ArrayList<>();
+        adapter = new DemandeAdapter(getContext(), demandeArrayList);
+        lvCentre.setAdapter(adapter);
+
         lvCentre.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Centre details = centres.get(i);
+                Demande details = demandeArrayList.get(i);
                 Intent intent = new Intent(getContext(), Details.class);
                 intent.putExtra("details", (Serializable) details);
                 startActivity(intent);
             }
         });
-
-        //adapter.notifyDataSetChanged();
-
-        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
-        toolbar.setTitle("Demande de sang en urgence");
 
         swipeContainer = (SwipeRefreshLayout)v.findViewById(R.id.swipeContainer);
         // Setup refresh listener which triggers new data loading
@@ -65,6 +76,7 @@ public class FragmentListDemande extends Fragment {
                 // Make sure you call swipeContainer.setRefreshing(false)
                 // once the network request has completed successfully.
                 fetchTimelineAsync(0);
+                // findStat();
             }
         });
         // Configure the refreshing colors
@@ -72,29 +84,43 @@ public class FragmentListDemande extends Fragment {
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
-        return v;
-    }
 
-    public void findList() {
-        centres = new ArrayList<>();
-        adapter = new CentreAdapter(getContext(), centres);
-        lvCentre.setAdapter(adapter);
+        findStat();
+        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+        toolbar.setTitle("Demande urgence");
+        return v;
     }
 
     public void fetchTimelineAsync(int page) {
         adapter.clear();
+        findStat();
         swipeContainer.setRefreshing(false);
     }
 
-  
+    public void findStat() {
+        String url = "https://shareblood.herokuapp.com/api/demande";
+        AsyncHttpClient client = new AsyncHttpClient();
+        client.get(url,new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                super.onSuccess(statusCode, headers, response);
+                JSONArray jobJsonPosts = response;
+                demandeArrayList.addAll(Demande.fromJSONArray(jobJsonPosts));
+                adapter.notifyDataSetChanged();
+                progressBar.setVisibility(View.GONE);
+            }
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
+                super.onFailure(statusCode, headers, throwable, errorResponse);
+                Toast.makeText(getContext(), "Error " + errorResponse.toString() , Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
-    /*
-        @Override
-        public void onActivityCreated(Bundle savedInstanceState) {
-            super.onActivityCreated(savedInstanceState);
-            Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
-            toolbar.setTitle("Liste de postion");
-        }
-    */
-
+    @Override
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        demandeArrayList  = new ArrayList<>();
+        adapter = new DemandeAdapter(getActivity(),demandeArrayList);
+    }
 }

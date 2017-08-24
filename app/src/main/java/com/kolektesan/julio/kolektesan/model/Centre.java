@@ -39,12 +39,12 @@ public class Centre implements Serializable {
         this.img = img;
     }
 
-    public String getTypee() {
-        return typee;
+    public String getType() {
+        return type;
     }
 
     public void setType(String type) {
-        this.typee = type;
+        this.type = type;
     }
 
     public String getTrlrphone() {
@@ -65,6 +65,7 @@ public class Centre implements Serializable {
     public Centre (JSONObject jsonObject) throws JSONException {
         this.lieu = jsonObject.getString("lieu");
         this.trlrphone = jsonObject.getString("telephone");
+        this.type = jsonObject.getString("type");
        // this.img = jsonObject.getString("photo");
     }
 

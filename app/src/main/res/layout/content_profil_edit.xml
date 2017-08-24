@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.design.widget.AppBarLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:id="@+id/appBarLayout"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="24dp"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/appBarLayout"
+        tools:context="com.kolektesan.julio.kolektesan.activity.ProfilDrawerActivity"
+        tools:ignore="ScrollViewSize">
+
+        <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivlocal"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="22dp"
+                android:foregroundGravity="center"
+                android:src="@drawable/ic_action_person"
+                app:civ_border_color="#fff"
+                app:civ_border_width="2dp" />
+
+            <TextView
+                android:id="@+id/tvVille"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ivlocal"
+                android:layout_centerHorizontal="true"
+                android:foregroundGravity="center"
+                android:text="Jean Fils Julio"
+                android:textColor="#000"
+                android:textSize="22sp"
+                tools:ignore="HardcodedText" />
+
+        </RelativeLayout>
+        
+        <EditText
+            android:id="@+id/tvGS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="B+"
+            tools:ignore="HardcodedText,RtlHardcoded"
+            android:layout_below="@+id/two"
+            android:layout_alignLeft="@+id/tvAdresse"
+            android:layout_alignStart="@+id/tvAdresse"
+            android:layout_alignRight="@+id/tvAdresse"
+            android:layout_alignEnd="@+id/tvAdresse" />
+
+        <EditText
+            android:id="@+id/tvAdresse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/tvGS"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="8dp"
+            android:hint="@string/adresse" />
+
+        <EditText
+            android:id="@+id/tvTe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tel"
+            tools:ignore="HardcodedText"
+            android:layout_centerVertical="true"
+            android:layout_alignLeft="@+id/tvAdresse"
+            android:layout_alignStart="@+id/tvAdresse"
+            android:layout_alignRight="@+id/tvAdresse"
+            android:layout_alignEnd="@+id/tvAdresse" />
+
+        <EditText
+            android:id="@+id/tvQsang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Qte sang"
+            tools:ignore="HardcodedText"
+            android:layout_below="@+id/tvTe"
+            android:layout_alignLeft="@+id/tvTe"
+            android:layout_alignStart="@+id/tvTe"
+            android:layout_alignRight="@+id/tvAdresse"
+            android:layout_alignEnd="@+id/tvAdresse" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="14dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Modifier" />
+</RelativeLayout>

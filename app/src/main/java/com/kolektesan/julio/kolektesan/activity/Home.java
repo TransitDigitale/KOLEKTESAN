@@ -25,15 +25,12 @@ import android.widget.TextView;
 import com.astuetz.PagerSlidingTabStrip;
 
 import com.kolektesan.julio.kolektesan.R;
-import com.kolektesan.julio.kolektesan.fragment.FragmentInfos;
+import com.kolektesan.julio.kolektesan.fragment.FragmentStat;
 import com.kolektesan.julio.kolektesan.fragment.FragmentListDemande;
 import com.kolektesan.julio.kolektesan.fragment.FragmentListInfo;
 import com.kolektesan.julio.kolektesan.fragment.FragmentListPosition;
 import com.kolektesan.julio.kolektesan.fragment.PubFragment;
 import com.squareup.picasso.Picasso;
-
-import java.util.Iterator;
-import java.util.List;
 
 public class Home extends AppCompatActivity {
     private DrawerLayout mDrawer;
@@ -202,7 +199,7 @@ public class Home extends AppCompatActivity {
             }  else if (position == 2) {
                 return new PubFragment();
             }else if (position == 3) {
-                return new FragmentInfos();
+                return new FragmentStat();
             } else if (position == 4) {
                 return new FragmentListDemande();
             } else {

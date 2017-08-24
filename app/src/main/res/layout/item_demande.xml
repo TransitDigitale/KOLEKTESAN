@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/ivlocal"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:foregroundGravity="center"
+        android:src="@drawable/usera"
+        app:civ_border_color="#fff"
+        app:civ_border_width="2dp"
+        android:layout_alignTop="@+id/tvType"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+    <TextView
+        android:id="@+id/tvVille"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/ivlocal"
+        android:layout_toRightOf="@+id/ivlocal"
+        android:text="My Name"
+        android:textColor="#000"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvAdresse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvVille"
+        android:layout_toEndOf="@+id/ivlocal"
+        android:layout_toRightOf="@+id/ivlocal"
+        android:maxLines="5"
+        android:text="Some text "
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="6dp"
+        android:text="Etat" />
+
+    <TextView
+        android:id="@+id/tvQte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvAdresse"
+        android:layout_toEndOf="@+id/ivlocal"
+        android:layout_toRightOf="@+id/ivlocal"
+        android:text="qte" />
+
+</RelativeLayout>
