@@ -2,10 +2,14 @@ package com.kolektesan.julio.kolektesan.activity;
 
 import android.content.Context;
 import android.content.Intent;
+
+import android.content.SharedPreferences;
+
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
@@ -17,12 +21,17 @@ import static com.kolektesan.julio.kolektesan.util.BackendlessSetting.APP_ID;
 
 public class Splash extends AppCompatActivity {
     private final int SPLASH_DISPLAY_LENGTH = 1000;
+
+    SharedPreferences prefs ;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_splash);
         Backendless.initApp(this, APP_ID, APP_ID);
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         if (isNetworkAvailable() == true) {
@@ -35,13 +44,15 @@ public class Splash extends AppCompatActivity {
         }
     }
 
+
     public void checkLogStatus() {
-        if (Backendless.UserService.loggedInUser() == "") {
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        if(prefs.getString("telephone", "none") == "none"){
             Intent i = new Intent(getApplicationContext(), Login.class);
             startActivity(i);
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             finish();
-        } else {
+        }else{
             Intent i = new Intent(getApplicationContext(), Home.class);
             startActivity(i);
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);

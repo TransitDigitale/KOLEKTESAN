@@ -1,18 +1,15 @@
 package com.kolektesan.julio.kolektesan.fragment;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.kolektesan.julio.kolektesan.R;
-import com.kolektesan.julio.kolektesan.activity.ScrollingActivityDetailArticle;
 import com.kolektesan.julio.kolektesan.adapter.CentreAdapter;
 import com.kolektesan.julio.kolektesan.model.Centre;
 
@@ -41,7 +38,7 @@ public class FragmentArticle extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_fragment_list_position, container, false);
-
+/*
         centre = new Centre();
         centre.setLieu("Men kek prensip bay san");
         centre.setTrlrphone("youn nan prensip bay san san se vonlonte , ki vle di moun kap bay san an fe sa paske li vle" +
@@ -92,7 +89,7 @@ public class FragmentArticle extends Fragment {
         lvCentre.setAdapter(adapter);
         adapter.add(centre);
         adapter.add(centre2);
-        adapter.add(centre3);
+        adapter.add(centre3);*/
         adapter.notifyDataSetChanged();
         Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
         toolbar.setTitle("Liste des articles fragment article");

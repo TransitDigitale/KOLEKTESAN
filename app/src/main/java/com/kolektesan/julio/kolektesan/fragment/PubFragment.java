@@ -99,12 +99,11 @@ public class PubFragment extends Fragment {
         return v;
     }
 
-  /*  @Override
+   /*  @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
         toolbar.setTitle("Media tisations");
-    }*/
-
-
+    }
+    */
 }
