@@ -74,7 +74,7 @@ public class Login extends AppCompatActivity {
                     .setIcon(R.drawable.ic_action_error_info)
                     .show();
         }else{
-
+          /*Save users data in a sharepreferences*/
             prefs = PreferenceManager.getDefaultSharedPreferences(Login.this);
             SharedPreferences.Editor editor = prefs.edit();
             editor.putString("name", uNom);
@@ -83,7 +83,6 @@ public class Login extends AppCompatActivity {
             editor.putString("ID_users",uTel);
             editor.commit();
             dimissLoading();
-
             Intent intent = new Intent(Login.this,Home.class);
             startActivity(intent);
             finish();
