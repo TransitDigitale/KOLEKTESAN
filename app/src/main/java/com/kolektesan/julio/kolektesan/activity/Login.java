@@ -11,10 +11,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.backendless.Backendless;
 import com.kolektesan.julio.kolektesan.R;
 import com.kolektesan.julio.kolektesan.util.BackendlessSetting;
+import android.widget.Toast;
+
+import com.backendless.Backendless;
+import com.backendless.BackendlessUser;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
+import com.kolektesan.julio.kolektesan.R;
+import com.kolektesan.julio.kolektesan.util.BackendlessSetting;
+import com.kolektesan.julio.kolektesan.util.Progress;
 
 import static com.kolektesan.julio.kolektesan.util.BackendlessSetting.APP_ID;
 import static com.kolektesan.julio.kolektesan.util.BackendlessSetting.SECRET_KEY;
@@ -74,6 +82,7 @@ public class Login extends AppCompatActivity {
                     .setIcon(R.drawable.ic_action_error_info)
                     .show();
         }else{
+
           /*Save users data in a sharepreferences*/
             prefs = PreferenceManager.getDefaultSharedPreferences(Login.this);
             SharedPreferences.Editor editor = prefs.edit();
@@ -86,7 +95,6 @@ public class Login extends AppCompatActivity {
             Intent intent = new Intent(Login.this,Home.class);
             startActivity(intent);
             finish();
-
         }
     }
     public void showLoading(){

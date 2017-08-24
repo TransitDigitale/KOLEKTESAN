@@ -1,5 +1,6 @@
 package com.kolektesan.julio.kolektesan.model;
 
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -9,6 +10,9 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+
+import com.backendless.property.ObjectProperty;
 
 
 import java.io.Serializable;
@@ -35,12 +39,12 @@ public class Centre implements Serializable {
         this.img = img;
     }
 
-    public String getType() {
-        return type;
+    public String getTypee() {
+        return typee;
     }
 
     public void setType(String type) {
-        this.type = type;
+        this.typee = type;
     }
 
     public String getTrlrphone() {

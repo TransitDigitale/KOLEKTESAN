@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.astuetz.PagerSlidingTabStrip;
+
 import com.kolektesan.julio.kolektesan.R;
 import com.kolektesan.julio.kolektesan.fragment.FragmentInfos;
 import com.kolektesan.julio.kolektesan.fragment.FragmentListDemande;
@@ -30,6 +31,9 @@ import com.kolektesan.julio.kolektesan.fragment.FragmentListInfo;
 import com.kolektesan.julio.kolektesan.fragment.FragmentListPosition;
 import com.kolektesan.julio.kolektesan.fragment.PubFragment;
 import com.squareup.picasso.Picasso;
+
+import java.util.Iterator;
+import java.util.List;
 
 public class Home extends AppCompatActivity {
     private DrawerLayout mDrawer;
@@ -40,6 +44,7 @@ public class Home extends AppCompatActivity {
     private ActionBarDrawerToggle drawerToggle;
     ImageView imHeader;
     public TextView tvName;
+
     SharedPreferences prefs ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +77,7 @@ public class Home extends AppCompatActivity {
         // We can now look up items within the header if needed
         imHeader= (ImageView) nvDrawer.getHeaderView(0).findViewById(R.id.ivlocal);
         tvName = (TextView) nvDrawer.getHeaderView(0).findViewById(R.id.TvName);
+
 
         String userName = prefs.getString("name", "n/a");
         String email = prefs.getString("email", "n/a");

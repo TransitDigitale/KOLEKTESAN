@@ -1,21 +1,33 @@
 package com.kolektesan.julio.kolektesan.fragment;
+
+import com.backendless.Backendless;
+import com.backendless.IDataStore;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
 import android.widget.ProgressBar;
+
 import android.widget.Toast;
 
+import com.backendless.persistence.DataQueryBuilder;
+import com.backendless.property.ObjectProperty;
 import com.kolektesan.julio.kolektesan.R;
 import com.kolektesan.julio.kolektesan.activity.Details;
 import com.kolektesan.julio.kolektesan.adapter.CentreAdapter;
 import com.kolektesan.julio.kolektesan.model.Centre;
+
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -26,13 +38,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
+
+import com.kolektesan.julio.kolektesan.util.BackendlessSetting;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import static com.kolektesan.julio.kolektesan.util.BackendlessSetting.APP_ID;
+import static com.kolektesan.julio.kolektesan.util.BackendlessSetting.SECRET_KEY;
+
+
 public class FragmentListPosition extends Fragment {
 
     ArrayList<Centre> ListCentres;
     CentreAdapter adapter;
     ListView lvCentre;
+
     public Centre
             centre;
+
    public SwipeRefreshLayout swipeContainer;
     ProgressBar progressBar;
 
@@ -45,14 +73,33 @@ public class FragmentListPosition extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_fragment_list_position, container, false);
+        /*Backendless.setUrl( BackendlessSetting.SERVER_URL );
+        Backendless.initApp(this, APP_ID, SECRET_KEY);*/
+
+        /* Backendless.Persistence.describe( "Centre", new AsyncCallback<List<ObjectProperty>>() {
+            @Override
+            public void handleResponse(List<ObjectProperty> response) {
+                Iterator<ObjectProperty> iterator = (Iterator<ObjectProperty>) response;
+                while( iterator.hasNext() ){
+                    ObjectProperty propDef = iterator.next();
+                }
+            }
+
+            @Override
+            public void handleFault(BackendlessFault fault) {
+
+            }
+        });*/
 
         lvCentre = (ListView) v.findViewById(R.id.lvCentre);
         progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
 
         ListCentres = new ArrayList<>();
         adapter = new CentreAdapter(getContext(), ListCentres);
-
         lvCentre.setAdapter(adapter);
+        lvCentre = (ListView) v.findViewById(R.id.lvCentre);
+       
+
         lvCentre.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -62,6 +109,7 @@ public class FragmentListPosition extends Fragment {
                 startActivity(intent);
             }
         });
+
 
         Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
         toolbar.setTitle("Postion des centre de transfusion");
@@ -83,6 +131,7 @@ public class FragmentListPosition extends Fragment {
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
+
         findArticle();
         return v;
     }

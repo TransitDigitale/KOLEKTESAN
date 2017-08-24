@@ -43,11 +43,13 @@
             android:label="@string/title_activity_profil_drawer"
             android:theme="@style/AppTheme" />
         <activity android:name=".activity.AboutKolekte" />
+
         <activity android:name=".activity.Login" />
         <activity android:name=".activity.Demande"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
         <activity android:name=".activity.Planifier"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+
 
     </application>
 

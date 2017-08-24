@@ -50,7 +50,6 @@ public class Details extends AppCompatActivity {
         tvVille.setText(centre.getLieu().toString());
         tvAdresse.setText(centre.getTrlrphone().toString());
 
-
     }
 
     public  void onCall(String tel){

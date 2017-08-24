@@ -38,25 +38,7 @@ public class FragmentListDemande extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_fragment_list_position, container, false);
-        /*Backendless.setUrl( BackendlessSetting.SERVER_URL );
-        Backendless.initApp(this, APP_ID, SECRET_KEY);*/
-
-        /* Backendless.Persistence.describe( "Centre", new AsyncCallback<List<ObjectProperty>>() {
-            @Override
-            public void handleResponse(List<ObjectProperty> response) {
-                Iterator<ObjectProperty> iterator = (Iterator<ObjectProperty>) response;
-                while( iterator.hasNext() ){
-                    ObjectProperty propDef = iterator.next();
-                }
-            }
-
-            @Override
-            public void handleFault(BackendlessFault fault) {
-
-            }
-        });*/
-
-
+     
         lvCentre = (ListView) v.findViewById(R.id.lvCentre);
         findList();
         lvCentre.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -103,4 +85,16 @@ public class FragmentListDemande extends Fragment {
         adapter.clear();
         swipeContainer.setRefreshing(false);
     }
+
+  
+
+    /*
+        @Override
+        public void onActivityCreated(Bundle savedInstanceState) {
+            super.onActivityCreated(savedInstanceState);
+            Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+            toolbar.setTitle("Liste de postion");
+        }
+    */
+
 }
