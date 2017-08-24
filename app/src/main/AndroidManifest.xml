@@ -42,7 +42,11 @@
             android:label="@string/title_activity_profil_drawer"
             android:theme="@style/AppTheme" />
         <activity android:name=".activity.AboutKolekte" />
-        <activity android:name=".activity.Login"></activity>
+        <activity android:name=".activity.Login" />
+        <activity
+            android:name=".activity.About"
+            android:label="@string/title_activity_about"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
