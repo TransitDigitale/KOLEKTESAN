@@ -67,44 +67,19 @@
                 android:textSize="22sp"
                 tools:ignore="HardcodedText" />
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/ivlocal"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginEnd="34dp"
-                android:layout_marginRight="34dp"
-                android:alpha="0"
-                app:srcCompat="@drawable/ic_action_tlf"
-                tools:ignore="ContentDescription" />
-
         </RelativeLayout>
-
-   <!--     <Button
-            android:id="@+id/btnFait"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:background="#fff"
-            android:text="planifier mon prochain don"
-            android:textColor="@color/colorPrimary"
-            tools:ignore="HardcodedText" />-->
-
+        
         <EditText
             android:id="@+id/tvGS"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="B+"
+            tools:ignore="HardcodedText,RtlHardcoded"
+            android:layout_below="@+id/two"
             android:layout_alignLeft="@+id/tvAdresse"
             android:layout_alignStart="@+id/tvAdresse"
-            android:layout_below="@+id/two"
-            android:text="B+"
-            tools:ignore="HardcodedText,RtlHardcoded" />
+            android:layout_alignRight="@+id/tvAdresse"
+            android:layout_alignEnd="@+id/tvAdresse" />
 
         <EditText
             android:id="@+id/tvAdresse"
@@ -114,31 +89,32 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/tvGS"
             android:layout_marginLeft="18dp"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="13dp"
-            android:text="@string/adresse" />
+            android:layout_marginRight="8dp"
+            android:hint="@string/adresse" />
 
         <EditText
             android:id="@+id/tvTe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Tel"
+            tools:ignore="HardcodedText"
+            android:layout_centerVertical="true"
             android:layout_alignLeft="@+id/tvAdresse"
             android:layout_alignStart="@+id/tvAdresse"
-            android:layout_below="@+id/tvAdresse"
-            android:layout_marginTop="16dp"
-            android:text="Tel"
-            tools:ignore="HardcodedText" />
+            android:layout_alignRight="@+id/tvAdresse"
+            android:layout_alignEnd="@+id/tvAdresse" />
 
         <EditText
             android:id="@+id/tvQsang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Qte sang"
+            tools:ignore="HardcodedText"
+            android:layout_below="@+id/tvTe"
             android:layout_alignLeft="@+id/tvTe"
             android:layout_alignStart="@+id/tvTe"
-            android:layout_below="@+id/tvTe"
-            android:layout_marginTop="12dp"
-            android:text="Qte sang"
-            tools:ignore="HardcodedText" />
+            android:layout_alignRight="@+id/tvAdresse"
+            android:layout_alignEnd="@+id/tvAdresse" />
     </RelativeLayout>
 
     <Button

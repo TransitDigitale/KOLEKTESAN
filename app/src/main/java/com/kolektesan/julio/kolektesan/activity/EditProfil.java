@@ -24,9 +24,10 @@ import org.json.JSONObject;
 import cz.msebera.android.httpclient.Header;
 
 public class EditProfil extends AppCompatActivity {
-    EditText tvVille ,tvGS ,tvAdresse ,
+    EditText tvGS ,tvAdresse ,
             tvTe ,tvQsang;
     ImageView ivlocal;
+    TextView tvVille;
     SharedPreferences prefs ;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +40,7 @@ public class EditProfil extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         tvGS = (EditText)findViewById(R.id.tvGS);
 
+        tvVille = (TextView)findViewById(R.id.tvVille);
         tvAdresse = (EditText)findViewById(R.id.tvAdresse);
         tvTe = (EditText)findViewById(R.id.tvTe);
         tvQsang = (EditText)findViewById(R.id.tvQsang);
