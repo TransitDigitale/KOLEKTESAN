@@ -1,8 +1,10 @@
 package com.kolektesan.julio.kolektesan.fragment;
+
 import com.backendless.Backendless;
 import com.backendless.IDataStore;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,6 +16,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import android.widget.ProgressBar;
+
 import android.widget.Toast;
 
 import com.backendless.persistence.DataQueryBuilder;
@@ -22,6 +27,18 @@ import com.kolektesan.julio.kolektesan.R;
 import com.kolektesan.julio.kolektesan.activity.Details;
 import com.kolektesan.julio.kolektesan.adapter.CentreAdapter;
 import com.kolektesan.julio.kolektesan.model.Centre;
+
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.json.JSONArray;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import cz.msebera.android.httpclient.Header;
+
 import com.kolektesan.julio.kolektesan.util.BackendlessSetting;
 
 import java.io.Serializable;
@@ -34,16 +51,18 @@ import java.util.Map;
 import static com.kolektesan.julio.kolektesan.util.BackendlessSetting.APP_ID;
 import static com.kolektesan.julio.kolektesan.util.BackendlessSetting.SECRET_KEY;
 
+
 public class FragmentListPosition extends Fragment {
 
-    ArrayList<Centre> centres;
+    ArrayList<Centre> ListCentres;
     CentreAdapter adapter;
     ListView lvCentre;
-   public Centre
-            centre , centre2,
-            centre3 , centre4,
-            centre5 , centre6;
+
+    public Centre
+            centre;
+
    public SwipeRefreshLayout swipeContainer;
+    ProgressBar progressBar;
 
     public FragmentListPosition() {
         // Required empty public constructor
@@ -72,49 +91,25 @@ public class FragmentListPosition extends Fragment {
             }
         });*/
 
-        centre = new Centre();
-        centre.setLieu("Port au prince");
-        centre.setTrlrphone("+509 22888800");
-        centre.setType("PTS");
-
-        centre2 = new Centre();
-        centre2.setLieu("Jacmel");
-        centre2.setTrlrphone("+509 22888822");
-        centre2.setType("DDS");
-
-        centre3 = new Centre();
-        centre3.setLieu("Port de Paix");
-        centre3.setTrlrphone("+509 22888892");
-        centre3.setType("DDS");
-
-        centre4 = new Centre();
-        centre4.setLieu("Geremie");
-        centre4.setTrlrphone("+509 22880022");
-        centre4.setType("PTS");
-
-        centre5 = new Centre();
-        centre5.setLieu("Gonaives");
-        centre5.setTrlrphone("+509 33888822");
-        centre5.setType("PTS");
-
-        centre6 = new Centre();
-        centre6.setLieu("Hinche");
-        centre6.setTrlrphone("+50942888822");
-        centre6.setType("DDS");
-
         lvCentre = (ListView) v.findViewById(R.id.lvCentre);
-        findList();
+        progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
+
+        ListCentres = new ArrayList<>();
+        adapter = new CentreAdapter(getContext(), ListCentres);
+        lvCentre.setAdapter(adapter);
+        lvCentre = (ListView) v.findViewById(R.id.lvCentre);
+       
+
         lvCentre.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Centre details = centres.get(i);
+                Centre details = ListCentres.get(i);
                 Intent intent = new Intent(getContext(), Details.class);
                 intent.putExtra("details", (Serializable) details);
                 startActivity(intent);
             }
         });
 
-        //adapter.notifyDataSetChanged();
 
         Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
         toolbar.setTitle("Postion des centre de transfusion");
@@ -128,6 +123,7 @@ public class FragmentListPosition extends Fragment {
                 // Make sure you call swipeContainer.setRefreshing(false)
                 // once the network request has completed successfully.
                 fetchTimelineAsync(0);
+                findArticle();
             }
         });
         // Configure the refreshing colors
@@ -135,24 +131,48 @@ public class FragmentListPosition extends Fragment {
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
+
+        findArticle();
         return v;
     }
 
-    public void findList() {
-        centres = new ArrayList<>();
-        adapter = new CentreAdapter(getContext(), centres);
-        lvCentre.setAdapter(adapter);
-        adapter.add(centre);
-        adapter.add(centre2);
-        adapter.add(centre3);
-        adapter.add(centre4);
-        adapter.add(centre5);
-        adapter.add(centre6);
-    }
 
     public void fetchTimelineAsync(int page) {
-       // adapter.clear();
+        adapter.clear();
+        findArticle();
         swipeContainer.setRefreshing(false);
+    }
+
+    public void findArticle() {
+        String url = "https://shareblood.herokuapp.com/api/centres";
+        AsyncHttpClient client = new AsyncHttpClient();
+        client.get(url,new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                super.onSuccess(statusCode, headers, response);
+                JSONArray jobJsonPosts = response;
+                ListCentres.addAll(Centre.fromJSONArray(jobJsonPosts));
+                adapter.notifyDataSetChanged();
+                progressBar.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
+                super.onFailure(statusCode, headers, throwable, errorResponse);
+                Toast.makeText(getContext(), "Error " + errorResponse.toString() , Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        ListCentres  = new ArrayList<>();
+        adapter = new CentreAdapter(getActivity(),ListCentres);
+    }
+
+    public void addAll(List<Centre> offres){
+        adapter.addAll(offres);
     }
 
     /*

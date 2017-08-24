@@ -32,8 +32,8 @@ public class CentreAdapter extends ArrayAdapter<Centre> {
             LayoutInflater inflater= LayoutInflater.from(getContext());
            convertView = inflater.inflate(R.layout.item_centre,parent,false);
         }
-        ///find the image view
-        //ImageView imageView = (ImageView) convertView.findViewById(R.id.ivlocal);
+        // find the image view
+        // ImageView imageView = (ImageView) convertView.findViewById(R.id.ivlocal);
         // Clear the recycle image from convertView from last time
         //imageView.setImageResource(0);
         TextView tvVille = (TextView) convertView.findViewById(R.id.tvVille);

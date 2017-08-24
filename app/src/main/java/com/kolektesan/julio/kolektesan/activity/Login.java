@@ -11,6 +11,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import com.backendless.Backendless;
+import com.kolektesan.julio.kolektesan.R;
+import com.kolektesan.julio.kolektesan.util.BackendlessSetting;
 import android.widget.Toast;
 
 import com.backendless.Backendless;
@@ -79,52 +82,19 @@ public class Login extends AppCompatActivity {
                     .setIcon(R.drawable.ic_action_error_info)
                     .show();
         }else{
-            BackendlessUser user = new BackendlessUser();
-            user.setProperty("name",uNom);
-            user.setProperty("telephone", uTel);
-            user.setEmail(uEmail);
-            user.setPassword(uPass);
-            Backendless.UserService.register(user, new AsyncCallback<BackendlessUser>() {
-                public void handleResponse(BackendlessUser registeredUser) {
-                    Intent intent = new Intent(Login.this,Home.class);
-                    startActivity(intent);
-                    //use the backendless login api
-                    Backendless.UserService.login(uEmail, uPass, new AsyncCallback<BackendlessUser>() {
-                        @Override
-                        public void handleResponse(BackendlessUser response) {
-                            prefs = PreferenceManager.getDefaultSharedPreferences(Login.this);
-                            SharedPreferences.Editor editor = prefs.edit();
-                            editor.putString("name", response.getProperty("name").toString());
-                            editor.putString("email", response.getEmail());
-                            editor.putString("ID_users", response.getObjectId());
-                            editor.commit();
-                            dimissLoading();
-                            Intent intent = new Intent(Login.this,Home.class);
-                            startActivity(intent);
-                            finish();
-                        }
 
-                        @Override
-                        public void handleFault(BackendlessFault backendlessFault) {
-                            dimissLoading();
-
-                        }
-                    }, true);
-                }
-
-                public void handleFault(BackendlessFault fault) {
-                    Toast.makeText(getApplicationContext(), ""+fault.getDetail(), Toast.LENGTH_SHORT).show();
-                    String code = fault.getCode();
-                    if (code.equals("3033")) {
-                        Toast.makeText(getApplicationContext(), "Ce email est déjà pris", Toast.LENGTH_LONG).show();
-                    }
-
-                    if (code.equals("3040")) {
-                        Toast.makeText(getApplicationContext(), " L'adresse e-mail est incorrecte ", Toast.LENGTH_LONG).show();
-                    }
-                    dimissLoading();
-                }
-            });
+          /*Save users data in a sharepreferences*/
+            prefs = PreferenceManager.getDefaultSharedPreferences(Login.this);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("name", uNom);
+            editor.putString("email", uEmail);
+            editor.putString("telephone", uTel);
+            editor.putString("ID_users",uTel);
+            editor.commit();
+            dimissLoading();
+            Intent intent = new Intent(Login.this,Home.class);
+            startActivity(intent);
+            finish();
         }
     }
     public void showLoading(){

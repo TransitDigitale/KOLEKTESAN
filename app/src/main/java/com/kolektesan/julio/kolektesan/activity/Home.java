@@ -23,16 +23,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.astuetz.PagerSlidingTabStrip;
-import com.backendless.Backendless;
-import com.backendless.async.callback.AsyncCallback;
-import com.backendless.exceptions.BackendlessFault;
-import com.backendless.property.ObjectProperty;
+
 import com.kolektesan.julio.kolektesan.R;
 import com.kolektesan.julio.kolektesan.fragment.FragmentInfos;
 import com.kolektesan.julio.kolektesan.fragment.FragmentListDemande;
 import com.kolektesan.julio.kolektesan.fragment.FragmentListInfo;
 import com.kolektesan.julio.kolektesan.fragment.FragmentListPosition;
-import com.kolektesan.julio.kolektesan.fragment.FragmentProfil;
 import com.kolektesan.julio.kolektesan.fragment.PubFragment;
 import com.squareup.picasso.Picasso;
 
@@ -49,6 +45,7 @@ public class Home extends AppCompatActivity {
     ImageView imHeader;
     public TextView tvName;
 
+    SharedPreferences prefs ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +60,7 @@ public class Home extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         // getSupportActionBar().setTitle("KOLEKTE");
         // Find our drawer view
@@ -79,50 +77,14 @@ public class Home extends AppCompatActivity {
         // We can now look up items within the header if needed
         imHeader= (ImageView) nvDrawer.getHeaderView(0).findViewById(R.id.ivlocal);
         tvName = (TextView) nvDrawer.getHeaderView(0).findViewById(R.id.TvName);
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if(Backendless.UserService.loggedInUser()!="") {
-            String userId = Backendless.UserService.loggedInUser();
-            String userName = prefs.getString("name", "n/a");
-            String email = prefs.getString("email", "n/a");
-            String img = prefs.getString("imageUri","default.png");
-            Picasso.with(Home.this).load(img).resize(400 ,400).centerCrop().placeholder(R.drawable.julio).into(imHeader);
-            //populate info on Drawer
-            tvName.setText(userName);
-        }else{
-            String userId = Backendless.UserService.loggedInUser();
-            String userName = prefs.getString("name", "n/a");
-            String email = prefs.getString("email", "n/a");
-            String img = prefs.getString("imageUri","default.png");
-            Picasso.with(Home.this).load(img).resize(400 ,400).centerCrop().placeholder(R.drawable.julio).into(imHeader);
-            //populate info on Drawer
-            tvName.setText(userName);
-        }
 
-         /*
-             if(savedInstanceState==null){
-              */
-            /*
-            FragmentProfil fragmentr = new FragmentProfil();
-            // Insert the fragment by replacing any existing fragment
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.flContent, fragmentr).commit();
 
-           }
-        */
- /*       Backendless.Persistence.describe( "Centre", new AsyncCallback<List<ObjectProperty>>() {
-            @Override
-            public void handleResponse(List<ObjectProperty> response) {
-                Iterator<ObjectProperty> iterator = response;
-                while( iterator.hasNext() ){
-                    ObjectProperty propDef = iterator.next();
-                }
-            }
-
-            @Override
-            public void handleFault(BackendlessFault fault) {
-
-            }
-        });*/
+        String userName = prefs.getString("name", "n/a");
+        String email = prefs.getString("email", "n/a");
+        String img = prefs.getString("imageUri","default.png");
+        Picasso.with(Home.this).load(img).resize(400 ,400).centerCrop().placeholder(R.drawable.ic_action_profil).into(imHeader);
+        // populate info on Drawer
+        tvName.setText(userName);
     }
 
     private void setupDrawerContent(NavigationView navigationView) {
@@ -155,7 +117,17 @@ public class Home extends AppCompatActivity {
                 Intent about =  new Intent(this, AboutKolekte.class);
                 startActivity(about);
                 break;
-
+            case R.id.demande:
+                Intent demande =  new Intent(this, Demande.class);
+                startActivity(demande);
+                break;
+            case R.id.planifier:
+                Intent planifier =  new Intent(this, Planifier.class);
+                startActivity(planifier);
+                break;
+            case R.id.logOut:
+                logout();
+                break;
               /*
                 case R.id.nav_second_fragment:
                     fragmentClass = SecondFragment.class;
@@ -185,6 +157,10 @@ public class Home extends AppCompatActivity {
         setTitle(menuItem.getTitle());
         // Close the navigation drawer
         // mDrawer.closeDrawers();
+    }
+    public void logout(){
+        prefs.edit().clear().commit();
+        System.exit(1);
     }
 
     @Override
