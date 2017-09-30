@@ -10,29 +10,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/toolbar"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Quantite voulu"
-            android:id="@+id/textView6"
-            android:layout_marginTop="86dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textDemande"
-            android:hint="Quantite"
-            android:inputType="number"
-            android:textColor="@color/colorPrimary"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:id="@+id/relativeLayout">
+
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_marginTop="15dp"
-            android:layout_below="@+id/textView6"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            app:srcCompat="@drawable/sourire"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
 
         <Button
             android:id="@+id/btnDemande"
@@ -64,4 +56,32 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
     </android.support.v7.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Be nice !!!"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText"
+        android:layout_alignStart="@+id/editText"
+        android:layout_below="@+id/editText"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Quantite"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

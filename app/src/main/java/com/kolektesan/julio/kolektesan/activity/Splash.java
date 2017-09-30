@@ -1,15 +1,15 @@
 package com.kolektesan.julio.kolektesan.activity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
-
 import android.content.SharedPreferences;
-
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
@@ -41,6 +41,17 @@ public class Splash extends AppCompatActivity {
                     checkLogStatus();
                 }
             }, SPLASH_DISPLAY_LENGTH);
+        }else{
+            new AlertDialog.Builder(Splash.this)
+                    .setTitle("Infos")
+                    .setMessage(R.string.nonet)
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .setIcon(R.drawable.ic_action_error_info)
+                    .show();
         }
     }
 
@@ -48,7 +59,7 @@ public class Splash extends AppCompatActivity {
     public void checkLogStatus() {
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         if(prefs.getString("telephone", "none") == "none"){
-            Intent i = new Intent(getApplicationContext(), Login.class);
+            Intent i = new Intent(getApplicationContext(), Home.class);
             startActivity(i);
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             finish();

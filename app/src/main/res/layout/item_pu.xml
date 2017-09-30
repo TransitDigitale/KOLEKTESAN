@@ -65,9 +65,10 @@
         android:id="@+id/btnPause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/ic_media_pause"
-        android:layout_alignTop="@+id/btnPlay"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignTop="@+id/btnPlay"
+        android:alpha="0"
+        app:srcCompat="@android:drawable/ic_media_pause" />
 
 </RelativeLayout>

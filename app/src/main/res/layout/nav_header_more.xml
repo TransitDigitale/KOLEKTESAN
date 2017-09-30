@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
-    android:background="@color/colorPrimary"
+    android:background="#fff"
     android:gravity="bottom"
     android:orientation="vertical"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
@@ -12,27 +12,27 @@
         android:id="@+id/ivlocal"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:foregroundGravity="center"
-        android:src="@drawable/usera"
-        app:civ_border_color="#fff"
-        app:civ_border_width="2dp"
-
-        android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/TvName"
-        android:layout_alignStart="@+id/TvName" />
+        android:layout_alignStart="@+id/TvName"
+        android:layout_centerVertical="true"
+        android:foregroundGravity="center"
+
+        android:src="@mipmap/ic_launcher"
+        app:civ_border_color="@color/colorPrimary"
+        app:civ_border_width="2dp" />
 
     <TextView
-        android:layout_marginLeft="10dp"
+        android:id="@+id/TvName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Julio Jean Fils"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@android:color/white"
-        android:id="@+id/TvName"
-        android:layout_marginBottom="16dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="13dp" />
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="13dp"
+        android:text="@string/app_name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/colorPrimary" />
 
 </RelativeLayout>

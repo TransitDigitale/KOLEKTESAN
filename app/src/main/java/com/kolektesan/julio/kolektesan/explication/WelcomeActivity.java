@@ -19,7 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.kolektesan.julio.kolektesan.R;
-import com.kolektesan.julio.kolektesan.activity.Home;
+import com.kolektesan.julio.kolektesan.activity.Splash;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -121,7 +121,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void launchHomeScreen() {
         prefManager.setFirstTimeLaunch(false);
-        startActivity(new Intent(WelcomeActivity.this, Home.class));
+        startActivity(new Intent(WelcomeActivity.this, Splash.class));
         finish();
     }
 

@@ -1,14 +1,24 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'keykolekte'
+            keyPassword 'manmie'
+            storeFile file('C:/Transition/Cle transition/kolekte.jks')
+            storePassword 'manmie'
+        }
+    }
     compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    buildToolsVersion '26.0.1'
     defaultConfig {
-        applicationId "com.kolektesan.julio.kolektesan"
-        minSdkVersion 15
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        signingConfig signingConfigs.config
+        applicationId 'com.kolektesan.julio.kolektesan'
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 9
+        versionName "1.0.8"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -16,11 +26,21 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            debuggable false
+            signingConfig signingConfigs.config
+        }
+    }
+    productFlavors {
     }
 }
 android {
     defaultConfig {
         vectorDrawables.useSupportLibrary = true
+    }
+    dexOptions {
+        // incremental true
+        javaMaxHeapSize "4g"
     }
 }
 
@@ -29,6 +49,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile 'com.android.support:multidex:1.0.1'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
     compile 'de.hdodenhof:circleimageview:2.1.0'
@@ -38,6 +59,6 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.android.support:design:25.3.1'
     compile 'com.loopj.android:android-async-http:1.4.9'
-    testCompile 'junit:junit:4.12'
     compile 'com.backendless:backendless:4.0.2'
+    testCompile 'junit:junit:4.12'
 }

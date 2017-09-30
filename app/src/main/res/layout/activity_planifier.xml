@@ -10,18 +10,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
+
         <TextView
+            android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Quantite donner"
-            android:id="@+id/textView6"
-            android:layout_marginTop="63dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignBottom="@+id/textDemande"
+            android:layout_alignLeft="@+id/textDemande"
+            android:layout_alignStart="@+id/textDemande"
+            android:layout_marginBottom="44dp"
+            android:text="Quantite a donner" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,10 +30,11 @@
             android:hint="Quantite"
             android:inputType="number"
             android:textColor="@color/colorPrimary"
-            android:layout_marginTop="15dp"
-            android:layout_below="@+id/textView6"
+            android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp" />
 
         <Button
             android:id="@+id/btnDemande"
@@ -68,9 +70,20 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Date"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        android:layout_below="@+id/imageView8"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="138dp"
-        android:text="Date" />
+        android:layout_marginTop="88dp" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        app:srcCompat="@drawable/sourire" />
 </RelativeLayout>

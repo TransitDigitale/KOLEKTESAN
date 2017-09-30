@@ -1,7 +1,6 @@
 package com.kolektesan.julio.kolektesan.adapter;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.kolektesan.julio.kolektesan.R;
-import com.kolektesan.julio.kolektesan.model.Centre;
 import com.kolektesan.julio.kolektesan.model.Statistique;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -33,7 +30,7 @@ public class StatistiqueAdapter extends ArrayAdapter<Statistique> {
 
         if (convertView == null){
             LayoutInflater inflater= LayoutInflater.from(getContext());
-           convertView = inflater.inflate(R.layout.item_centre,parent,false);
+           convertView = inflater.inflate(R.layout.item_statistique,parent,false);
         }
         // find the image view
         // ImageView imageView = (ImageView) convertView.findViewById(R.id.ivlocal);
@@ -49,7 +46,7 @@ public class StatistiqueAdapter extends ArrayAdapter<Statistique> {
 
         try {
             Date date = format.parse(statistique.getDate());
-            tvType.setText(""+ date);
+            tvType.setText(""+  date);
         } catch (ParseException e) {
             e.printStackTrace();
             tvType.setText(statistique.getDate());

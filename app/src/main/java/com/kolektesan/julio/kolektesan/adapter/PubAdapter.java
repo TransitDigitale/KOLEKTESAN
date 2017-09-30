@@ -56,7 +56,7 @@ public class PubAdapter extends ArrayAdapter<Pub> {
         tvVille.setText(pub.getName());
         tvAdresse.setText(pub.getType());
 
-        play.setOnClickListener(new View.OnClickListener() {
+        /*play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(pub.getType().equals("videos")){
@@ -71,10 +71,11 @@ public class PubAdapter extends ArrayAdapter<Pub> {
             @Override
             public void onClick(View view) {
                 //int res = Integer.parseInt(("R.raw."+pub.getAudioLink()));
-              //  mediaPlayer = MediaPlayer.create(getContext(),R.raw.baysan);
+                //mediaPlayer = MediaPlayer.create(getContext(),R.raw.baysan);
                 mediaPlayer.pause();
+                // mediaPlayer.stop();
             }
-        });
+        });*/
 
         // tvType.setText(tu.getType());
         // populate the thumbNail images

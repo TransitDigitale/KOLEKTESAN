@@ -40,4 +40,7 @@
     <string name="title_activity_profil_drawer">ProfilDrawerActivity</string>
     <string name="champsVides">Tous les champs doivent être remplis </string>
     <string name="title_activity_about">A propos Kolekte</string>
+    <string name="nonet">Vérifiez votre connexion internet!</string>
+    <string name="cap_haitien">Cap haitien</string>
+    <string name="pts">PTS</string>
 </resources>

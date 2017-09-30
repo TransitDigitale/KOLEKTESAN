@@ -64,11 +64,11 @@ public class Demande implements Serializable {
     // public  User user;
 
     public Demande(JSONObject jsonObject) throws JSONException {
-        this.text = jsonObject.getString("text");
-        this.date = jsonObject.getString("etat");
-        this.qte = jsonObject.getString("qte");
-        this.etat = jsonObject.getString("text");
-        this.name = jsonObject.getString("etat");
+        this.text = jsonObject.getString("message");
+        this.date = jsonObject.getString("phone");
+        this.qte = jsonObject.getString("blood_type");
+        this.etat = jsonObject.getString("resolved");
+        this.name = jsonObject.getString("name");
         // this.img = jsonObject.getString("photo");
     }
 

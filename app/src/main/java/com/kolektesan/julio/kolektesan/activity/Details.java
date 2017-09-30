@@ -1,15 +1,20 @@
 package com.kolektesan.julio.kolektesan.activity;
 
 import android.Manifest;
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,6 +28,7 @@ public class Details extends AppCompatActivity {
     TextView tvVille, tvAdresse;
     Centre centre;
     ImageView call;
+    WebView myWebView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +55,42 @@ public class Details extends AppCompatActivity {
         centre =  (Centre) getIntent().getSerializableExtra("details");
         tvVille.setText(centre.getLieu().toString());
         tvAdresse.setText(centre.getTrlrphone().toString());
+       // putin web view
+        // imageView3
+        myWebView = (WebView) findViewById(R.id.myWebView);
+        // Configure related browser settings
+        myWebView.getSettings().setLoadsImagesAutomatically(true);
+        myWebView.getSettings().setJavaScriptEnabled(true);
+        myWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+        // Configure the client to use when opening URLs
+        myWebView.setWebViewClient(new MyBrowser());
+        // Load the initial URL
+        String url = "https://www.google.ht/maps/place/"+centre.getLieu().toString();
+        myWebView.loadUrl(url);
+        // Enable responsive layout
+        myWebView.getSettings().setUseWideViewPort(true);
+// Zoom out if the content width is greater than the width of the viewport
+        myWebView.getSettings().setLoadWithOverviewMode(true);
+        myWebView.getSettings().setSupportZoom(true);
+        myWebView.getSettings().setBuiltInZoomControls(true); // allow pinch to zooom
+        myWebView.getSettings().setDisplayZoomControls(false); // disable the default zoom controls on the page
 
+    }
+    // Manages the behavior when URLs are loaded
+    private class MyBrowser extends WebViewClient {
+        @SuppressWarnings("deprecation")
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+            return true;
+        }
+
+        @TargetApi(Build.VERSION_CODES.N)
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+            view.loadUrl(request.getUrl().toString());
+            return true;
+        }
     }
 
     public  void onCall(String tel){

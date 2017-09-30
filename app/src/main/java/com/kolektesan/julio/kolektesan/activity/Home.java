@@ -23,14 +23,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.astuetz.PagerSlidingTabStrip;
-
+import com.kolektesan.julio.kolektesan.ActivityTransition;
 import com.kolektesan.julio.kolektesan.R;
-import com.kolektesan.julio.kolektesan.fragment.FragmentStat;
 import com.kolektesan.julio.kolektesan.fragment.FragmentListDemande;
 import com.kolektesan.julio.kolektesan.fragment.FragmentListInfo;
 import com.kolektesan.julio.kolektesan.fragment.FragmentListPosition;
+import com.kolektesan.julio.kolektesan.fragment.FragmentStat;
 import com.kolektesan.julio.kolektesan.fragment.PubFragment;
-import com.squareup.picasso.Picasso;
 
 public class Home extends AppCompatActivity {
     private DrawerLayout mDrawer;
@@ -73,7 +72,7 @@ public class Home extends AppCompatActivity {
 
         // We can now look up items within the header if needed
         imHeader= (ImageView) nvDrawer.getHeaderView(0).findViewById(R.id.ivlocal);
-        tvName = (TextView) nvDrawer.getHeaderView(0).findViewById(R.id.TvName);
+    /*    tvName = (TextView) nvDrawer.getHeaderView(0).findViewById(R.id.TvName);
 
 
         String userName = prefs.getString("name", "n/a");
@@ -81,7 +80,7 @@ public class Home extends AppCompatActivity {
         String img = prefs.getString("imageUri","default.png");
         Picasso.with(Home.this).load(img).resize(400 ,400).centerCrop().placeholder(R.drawable.ic_action_profil).into(imHeader);
         // populate info on Drawer
-        tvName.setText(userName);
+        tvName.setText(userName);*/
     }
 
     private void setupDrawerContent(NavigationView navigationView) {
@@ -106,25 +105,34 @@ public class Home extends AppCompatActivity {
         Fragment fragment = null;
         Class fragmentClass;
         switch(menuItem.getItemId()) {
+            /*
             case R.id.profil:
                 Intent profil =  new Intent(this, ProfilDrawerActivity.class);
                 startActivity(profil);
                 break;
+            */
             case R.id.nav_about:
                 Intent about =  new Intent(this, AboutKolekte.class);
                 startActivity(about);
                 break;
+
+            case R.id.codingBy:
+                Intent codingBy =  new Intent(this, ActivityTransition.class);
+                startActivity(codingBy);
+                break;
+           /*
             case R.id.demande:
                 Intent demande =  new Intent(this, Demande.class);
                 startActivity(demande);
                 break;
-            case R.id.planifier:
+           */
+           /*  case R.id.planifier:
                 Intent planifier =  new Intent(this, Planifier.class);
                 startActivity(planifier);
-                break;
-            case R.id.logOut:
+                break;*/
+            /*case R.id.logOut:
                 logout();
-                break;
+                break;*/
               /*
                 case R.id.nav_second_fragment:
                     fragmentClass = SecondFragment.class;

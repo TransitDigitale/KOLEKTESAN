@@ -51,7 +51,7 @@ public class EditProfil extends AppCompatActivity {
         String userName = prefs.getString("name", "n/a");
         String email = prefs.getString("email", "n/a");
         String img = prefs.getString("imageUri","default.png");
-        Picasso.with(EditProfil.this).load(img).resize(400 ,400).centerCrop().placeholder(R.drawable.julio).into(ivlocal);
+        Picasso.with(EditProfil.this).load(img).resize(400 ,400).centerCrop().placeholder(R.drawable.ic_action_person).into(ivlocal);
         //populate info on Drawer
         tvVille.setText(userName);
         findStat();

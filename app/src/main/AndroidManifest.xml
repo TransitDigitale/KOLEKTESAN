@@ -8,25 +8,28 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name="android.support.multidex.MultiDexApplication"
+        android:hardwareAccelerated="false"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
+        android:largeHeap="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.Splash">
+        <activity android:name=".activity.Splash"></activity>
+        <activity
+            android:name=".activity.Home"
+            android:theme="@style/AppTheme" />
+            <activity android:name=".activity.Details" />
+            <activity android:name=".activity.Infos" />
+        <activity android:name=".explication.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.Home"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".activity.Details" />
-        <activity android:name=".activity.Infos" />
-        <activity android:name=".explication.WelcomeActivity" />
         <activity
             android:name=".activity.ScrollingActivityDetailArticle"
             android:label="@string/title_activity_scrolling_detail_article"
@@ -51,12 +54,14 @@
         <activity
             android:name=".activity.About"
             android:label="@string/title_activity_about"
-            android:theme="@style/AppTheme"></activity>
-        <activity android:name=".activity.Demande"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
-        <activity android:name=".activity.Planifier"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
-
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.Demande"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".activity.Planifier"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".ActivityTransition"></activity>
     </application>
 
 </manifest>

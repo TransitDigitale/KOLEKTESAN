@@ -29,19 +29,21 @@
 
         <ImageView
             android:id="@+id/ivlocal"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="37dp"
-            app:srcCompat="@drawable/cr" />
+            android:layout_marginTop="17dp"
+            android:contentDescription=""
+            app:srcCompat="@drawable/bloodsplas"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/tvVille"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="17dp"
-            android:text="Cap haitien"
+            android:text="@string/cap_haitien"
             android:textColor="#000"
             android:textSize="22sp"
             android:layout_below="@+id/ivlocal"
@@ -57,7 +59,7 @@
             android:foregroundGravity="center_horizontal|center"
             android:gravity="center_vertical|center_horizontal"
             android:padding="16dp"
-            android:text="PTS"
+            android:text="@string/pts"
             android:textSize="22sp"
             android:layout_below="@+id/tvVille"
             android:layout_alignParentRight="true"
@@ -73,20 +75,21 @@
             android:layout_marginEnd="34dp"
             android:layout_marginRight="34dp"
             android:onClick="onCall"
-            app:srcCompat="@drawable/ic_action_tlf" />
+            app:srcCompat="@drawable/ic_action_tlf"
+            tools:ignore="ContentDescription" />
     </RelativeLayout>
 
 
-    <ImageView
-        android:id="@+id/imageView3"
+    <WebView
+        android:id="@+id/myWebView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/m"
-        android:scaleType="centerCrop"
-        android:layout_below="@+id/two"
-        android:layout_alignParentRight="true"
+        android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/btnFait" />
+        android:layout_below="@+id/two"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/m"
+        tools:ignore="ContentDescription" />
 </RelativeLayout>

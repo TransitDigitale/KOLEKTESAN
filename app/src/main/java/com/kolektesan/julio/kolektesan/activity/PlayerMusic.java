@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import com.kolektesan.julio.kolektesan.R;
 import com.kolektesan.julio.kolektesan.model.Pub;
@@ -13,6 +14,7 @@ import com.kolektesan.julio.kolektesan.model.Pub;
 public class PlayerMusic extends AppCompatActivity {
     Pub pub;
     MediaPlayer mediaPlayer;
+    TextView songTitle ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +24,8 @@ public class PlayerMusic extends AppCompatActivity {
         getSupportActionBar().hide();
         pub = (Pub) getIntent().getSerializableExtra("playpub");
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-
+        songTitle = (TextView) findViewById(R.id.songTitle);
+        songTitle.setText(pub.getName());
         int res = pub.getAudioLink();
         mediaPlayer = MediaPlayer.create(getApplicationContext(),res);
         mediaPlayer.start();
@@ -47,6 +50,8 @@ public class PlayerMusic extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                  mediaPlayer.pause();
+                 mediaPlayer.stop();
+                finish();
             }
         });
     }

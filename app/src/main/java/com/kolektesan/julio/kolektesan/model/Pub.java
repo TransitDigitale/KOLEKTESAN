@@ -39,7 +39,28 @@ public class Pub implements Serializable {
         this.imgCover = imgCover;
     }
     public int audioLink;
-  public  String name;
-  public  String type;
-  public  String imgCover;
+    public  String name;
+    public  String type;
+    public  String imgCover;
+
+/*
+    public Pub(JSONObject jsonObject) throws JSONException {
+        this.name = jsonObject.getString("name");
+        this.type = jsonObject.getString("type");
+        this.imgCover = jsonObject.getString("imgCover");
+        this.audioLink = jsonObject.getInt("audioLink");
+    }
+
+    public static ArrayList<Pub> fromJSONArray(JSONArray array) {
+        ArrayList<Pub> results = new ArrayList<>();
+        for (int x = 0; x < array.length(); x++){
+            try {
+                results.add (new Pub(array.getJSONObject(x)));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return results;
+    }*/
+
 }

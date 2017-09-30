@@ -10,25 +10,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.backendless.Backendless;
 import com.kolektesan.julio.kolektesan.R;
-import com.kolektesan.julio.kolektesan.adapter.DemandeAdapter;
-import com.kolektesan.julio.kolektesan.model.*;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.squareup.picasso.Picasso;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-
 import cz.msebera.android.httpclient.Header;
-
-import static com.kolektesan.julio.kolektesan.R.id.ivlocal;
 
 public class ProfilDrawerActivity extends AppCompatActivity {
     TextView tvVille ,tvGS ,tvAdresse ,
@@ -57,7 +48,7 @@ public class ProfilDrawerActivity extends AppCompatActivity {
         String userName = prefs.getString("name", "n/a");
         String email = prefs.getString("email", "n/a");
         String img = prefs.getString("imageUri","default.png");
-        Picasso.with(ProfilDrawerActivity.this).load(img).resize(400 ,400).centerCrop().placeholder(R.drawable.julio).into(ivlocal);
+        Picasso.with(ProfilDrawerActivity.this).load(img).resize(400 ,400).centerCrop().placeholder(R.drawable.ic_action_person).into(ivlocal);
         //populate info on Drawer
         tvVille.setText(userName);
         findStat();
@@ -91,7 +82,7 @@ public class ProfilDrawerActivity extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 super.onFailure(statusCode, headers, throwable, errorResponse);
-                Toast.makeText(ProfilDrawerActivity.this, "Error " + errorResponse.toString() , Toast.LENGTH_SHORT).show();
+//                Toast.makeText(ProfilDrawerActivity.this, "Error " + errorResponse.toString() , Toast.LENGTH_SHORT).show();
             }
         });
     }

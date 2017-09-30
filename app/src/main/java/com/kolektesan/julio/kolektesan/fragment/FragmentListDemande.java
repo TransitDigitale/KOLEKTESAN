@@ -1,5 +1,4 @@
 package com.kolektesan.julio.kolektesan.fragment;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -7,25 +6,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.kolektesan.julio.kolektesan.R;
-import com.kolektesan.julio.kolektesan.activity.Details;
-import com.kolektesan.julio.kolektesan.adapter.CentreAdapter;
 import com.kolektesan.julio.kolektesan.adapter.DemandeAdapter;
-import com.kolektesan.julio.kolektesan.adapter.StatistiqueAdapter;
-import com.kolektesan.julio.kolektesan.model.Centre;
 import com.kolektesan.julio.kolektesan.model.Demande;
-import com.kolektesan.julio.kolektesan.model.Statistique;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONArray;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
@@ -57,7 +49,7 @@ public class FragmentListDemande extends Fragment {
         adapter = new DemandeAdapter(getContext(), demandeArrayList);
         lvCentre.setAdapter(adapter);
 
-        lvCentre.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+      /*  lvCentre.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Demande details = demandeArrayList.get(i);
@@ -65,7 +57,7 @@ public class FragmentListDemande extends Fragment {
                 intent.putExtra("details", (Serializable) details);
                 startActivity(intent);
             }
-        });
+        });*/
 
         swipeContainer = (SwipeRefreshLayout)v.findViewById(R.id.swipeContainer);
         // Setup refresh listener which triggers new data loading
@@ -98,7 +90,7 @@ public class FragmentListDemande extends Fragment {
     }
 
     public void findStat() {
-        String url = "https://shareblood.herokuapp.com/api/demande";
+        String url = "https://shareblood.herokuapp.com/api/alerts/";
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(url,new JsonHttpResponseHandler(){
             @Override

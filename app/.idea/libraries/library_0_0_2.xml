@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="library-0.0.2">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/a7006f8d4430a4c01aae8673e4d200faa285055d/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/a7006f8d4430a4c01aae8673e4d200faa285055d/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.flavienlaurent.discrollview/library/0.0.2/35084d06b555559720c51a49243961be9e40a630/library-0.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
